@@ -1,0 +1,48 @@
+#home-banner {
+    width: 100%;
+    height: 30em;
+    background-image: url('/assets/terrah-holly-pmhdkgRCbtE-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 3em 5em white;
+}
+
+#home-container{
+    display: flex;
+    justify-content: center;
+}
+#home-content{
+    max-width: 960px;
+}
+#home-content-header-image{
+    background-image: url('/assets/jeff-morris-realtor.jpg');
+    background-size: cover;
+    background-position-y: -30px;
+    background-position-x: center;
+    width: 9em;
+    height: 9em;
+    border-radius: 3em;
+}
+.list-button{
+    width: 100%;
+    justify-content: flex-end;
+}
+#home-content-header{
+    display: flex;
+    align-items:start;
+}
+#home-content-header-text{
+    padding-left: 1em;
+}
+#home-content-text{
+    padding: 1em;
+}
+#home-content-header-name{
+    margin: 0;
+}
+#home-content-header-company{
+    margin: 0;
+}
+#home-content-header-slogan{
+    margin: 0;
+}
