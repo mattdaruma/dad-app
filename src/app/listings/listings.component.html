@@ -1,25 +1,13 @@
 <div id="listing-filters-container" class="listing-filters-container">
     <app-listing-filters></app-listing-filters>
 </div>
-<div id="listing-tab-container" class="listing-tab-container">
-    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <mat-icon>view_list</mat-icon>
-                Cards
-            </ng-template>
-            <ng-template matTabContent>
-              <app-listing-card></app-listing-card>
-            </ng-template>
-        </mat-tab>
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <mat-icon>list</mat-icon>
-                Table
-            </ng-template>
-            <ng-template matTabContent>
-              <app-listing-table></app-listing-table>
-            </ng-template>
-        </mat-tab>
-    </mat-tab-group>
+<div id="listing-result-container" class="listing-result-container">
+    <div class="listing-card-container" ngStyle.xs="display:none">
+        <app-listing-card *ngFor="let listing of (PagedListings | async)" [Listing]="listing"></app-listing-card>
+    </div>
+    <div class="listing-card-container"></div>
+    <div class="listing-card-container"></div>
+    <div class="listing-card-container"></div>
+    <div class="listing-card-container"></div>
+    <div class="listing-card-container"></div>
 </div>

@@ -1,5 +1,5 @@
-{
-    "abcd-1234": {
+[
+    {
         "Images": [
             {
                 "URL": "house.jpg",
@@ -8,14 +8,12 @@
             }
         ],
         "ForSale": true,
-        "Location": {
-            "longitude": 23.45,
-            "lattitude": 34.56,
-            "Street": "123 blahblah lane",
-            "City": "Hamingham",
-            "State": "AL",
-            "Zip": "12345"
-        },
+        "Longitude": 23.45,
+        "Lattitude": 34.56,
+        "Street": "123 blahblah lane",
+        "City": "Hamingham",
+        "State": "AL",
+        "Zip": "12345",
         "LotSize": "32sqkm",
         "PropertySize": "2sqft",
         "Bed": 3,
@@ -102,4 +100,4 @@
             "Fire": "Maximal"
         }
     }
-}
+]

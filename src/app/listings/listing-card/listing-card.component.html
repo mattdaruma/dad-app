@@ -1,1 +1,14 @@
-<p>listing-card works!</p>
+<mat-card class="listing-card">
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <h2>{{Listing.Street}}</h2>
+        <h3>{{Listing.City}}, {{Listing.State}}</h3>
+        <p>
+            {{Listing.Overview}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>
