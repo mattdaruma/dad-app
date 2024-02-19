@@ -65,18 +65,23 @@
     <div id="home-menu" class="home-menu">
         <mat-list role="list">
             <mat-list-item role="listitem">
-                <button class="list-button" mat-button color="primary">
-                    <mat-icon>person</mat-icon> About Jeff
-                </button>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-                <button class="list-button" mat-button color="primary">
+                <button class="list-button" mat-button color="primary" [routerLink]="['/listings']">
                     <mat-icon>list</mat-icon> Listings
                 </button>
             </mat-list-item>
             <mat-list-item role="listitem">
                 <button class="list-button" mat-button color="primary">
                     <mat-icon>map</mat-icon> Map
+                </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <button class="list-button" mat-button color="primary">
+                    <mat-icon>mail</mat-icon> Contact Me
+                </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+                <button class="list-button" mat-button color="primary">
+                    <mat-icon>person</mat-icon> About Me
                 </button>
             </mat-list-item>
         </mat-list>

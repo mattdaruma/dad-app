@@ -1,0 +1,105 @@
+{
+    "abcd-1234": {
+        "Images": [
+            {
+                "URL": "house.jpg",
+                "Title": "House",
+                "Description": "A picture of the house."
+            }
+        ],
+        "ForSale": true,
+        "Location": {
+            "longitude": 23.45,
+            "lattitude": 34.56,
+            "Street": "123 blahblah lane",
+            "City": "Hamingham",
+            "State": "AL",
+            "Zip": "12345"
+        },
+        "LotSize": "32sqkm",
+        "PropertySize": "2sqft",
+        "Bed": 3,
+        "Bath": 6,
+        "YearBuilt": 1995,
+        "GarageSize": 2,
+        "LastSold": 332534,
+        "Overview": "Lorem ipsum blah blah filler words...",
+        "PropertyFeatures": [
+            {
+                "Category": "Bathrooms",
+                "Features": ["Full Baths: 2", "Half Baths: 1"]
+            }
+        ],
+        "Valuations": {
+            "Zillow": {
+                "2023-01-01T00:00:00.000": 323345
+            },
+            "CoreLogic": {
+                "2023-01-01T00:00:00.000": 332345
+            }
+        },
+        "SimilarForSale": [
+            {
+                "Image": "abcd.jpg",
+                "Price": 232323,
+                "Bed": 4,
+                "Bath": 1,
+                "PropertySize": 2222,
+                "Street": "343 bombay bay",
+                "City": "Paris",
+                "State": "FR"
+            }
+        ],
+        "PriceHistory": {
+            "2023-03-03T00:00:00.000": {
+                "Event": "Sold",
+                "Price": 323333,
+                "PricePerSqFt": "333",
+                "Source": "Public Record"
+            }
+        },
+        "TaxHistory": {
+            "2022": {
+                "Taxes": 3234.99,
+                "Land": null,
+                "Additions": null,
+                "Total": 32323
+            }
+        },
+        "MedianListingPrice": 234432,
+        "MedianSalesPrice": 323454,
+        "MedianDaysOnMarket": 22,
+        "MedianPricePerSqFt": 321,
+        "NearbySchools" : [
+            {
+                "Rating": 10,
+                "Name": "ThisPlace Academy",
+                "Grades": "K-9",
+                "Type": "Public",
+                "Students": 500,
+                "Distance": 1.1,
+                "Reviews": {
+                    "Stars": 3.5,
+                    "Count": 22
+                }
+            }
+        ],
+        "NearbyNeighborhoods": ["Huffman", "South Eastlake"],
+        "NearbyValues": [
+            {
+                "Street": "123 blahblah street",
+                "City": "Hamgnimah",
+                "State": "AL",
+                "Value": 334455,
+                "Bed": 2,
+                "Bath": 1,
+                "LotSize": "23km",
+                "PropertySize": "3000ft"
+            }
+        ],
+        "EnvironmentalRisk": {
+            "Flood": "Minimal",
+            "Fire": "Maximal"
+        }
+    }
+}
