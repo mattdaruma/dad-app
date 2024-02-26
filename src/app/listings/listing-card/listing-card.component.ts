@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card'
@@ -5,7 +6,7 @@ import { MatCardModule } from '@angular/material/card'
 @Component({
   selector: 'app-listing-card',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule],
   templateUrl: './listing-card.component.html',
   styleUrl: './listing-card.component.scss'
 })

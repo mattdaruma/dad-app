@@ -1,89 +1,33 @@
-<div id="home-banner" class="home-banner"></div>
-<div id="home-container" class="home-container">
-    <div id="home-content" class="home-content">
-        <div id="home-content-header">
-            <div id="home-content-header-image" class="home-content-header-image"></div>
-            <div id="home-content-header-text" class="home-content-header-text">
-                <div id="home-content-header-name" class="mat-headline-4 home-content-header-name ">
-                    Jeff Morris
-                </div>
-                <div id="home-content-header-company" class="mat-headline-5 home-content-header-company ">
-                    RE/MAX
-                </div>
-                <div id="home-content-header-slogan" class="mat-caption home-content-header-company ">
-                    Doin' Good Real Estate Stuff
+<div id="banner-container" class="banner-container">
+    <div #bannerImage id="bannerImage" class="bannerImage" [hidden]="!(ViewData | async)?.Banner"></div>
+    <div id="home-container" class="home-container">
+        <div id="home-content" class="home-content">
+            <div id="home-content-header">
+                <div #bannerAvatar id="bannerAvatar" class="bannerAvatar" [hidden]="!(ViewData | async)?.Avatar"></div>
+                <div id="home-content-header-text" class="home-content-header-text">
+                    <div id="home-content-header-name" class="mat-headline-4 home-content-header-name" [hidden]="!(ViewData | async)?.Header">
+                        {{(ViewData | async)?.Header}}
+                    </div>
+                    <div id="home-content-header-company" class="mat-headline-5 home-content-header-company" [hidden]="!(ViewData | async)?.SubHeader">
+                        {{(ViewData | async)?.SubHeader}}
+                    </div>
+                    <div id="home-content-header-slogan" class="mat-caption home-content-header-company" [hidden]="!(ViewData | async)?.Caption">
+                        {{(ViewData | async)?.Caption}}
+                    </div>
                 </div>
             </div>
+            <div id="home-content-text" class="home-content-text">
+                {{(ViewData | async)?.Content}}
+            </div>
         </div>
-        <div id="home-content-text" class="home-content-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Pharetra sit amet aliquam id diam maecenas. Egestas purus viverra accumsan in. Fames ac
-            turpis egestas sed tempus. Cras pulvinar mattis nunc sed blandit libero. Dolor morbi non arcu risus quis
-            varius. Pulvinar mattis nunc sed blandit libero. Nunc sed id semper risus. Elit pellentesque habitant morbi
-            tristique. Eget dolor morbi non arcu risus quis varius quam. Neque convallis a cras semper auctor. Egestas
-            purus viverra accumsan in nisl. Facilisis volutpat est velit egestas dui id ornare arcu odio. Iaculis at
-            erat pellentesque adipiscing. Facilisis gravida neque convallis a cras semper auctor neque vitae. Rutrum
-            quisque non tellus orci. Tellus orci ac auctor augue mauris augue. Aliquet eget sit amet tellus.
-
-            Justo eget magna fermentum iaculis eu non diam phasellus. Sit amet massa vitae tortor condimentum lacinia.
-            Amet dictum sit amet justo donec enim diam vulputate ut. Urna neque viverra justo nec ultrices dui. Id
-            venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. Consectetur a erat nam at. Sed
-            augue lacus viverra vitae. Eget egestas purus viverra accumsan in nisl. Non curabitur gravida arcu ac tortor
-            dignissim. Sed elementum tempus egestas sed sed risus. Pellentesque id nibh tortor id. Felis imperdiet proin
-            fermentum leo vel orci porta. Pellentesque elit ullamcorper dignissim cras tincidunt.
-
-            Sit amet commodo nulla facilisi. Rhoncus est pellentesque elit ullamcorper dignissim cras. Enim sed faucibus
-            turpis in eu. Mattis molestie a iaculis at erat pellentesque adipiscing commodo elit. Euismod nisi porta
-            lorem mollis aliquam ut porttitor. Et tortor at risus viverra adipiscing at. Commodo viverra maecenas
-            accumsan lacus vel. Dictumst vestibulum rhoncus est pellentesque. Tellus elementum sagittis vitae et. Amet
-            venenatis urna cursus eget nunc scelerisque viverra mauris in. Diam in arcu cursus euismod quis viverra nibh
-            cras pulvinar. Imperdiet proin fermentum leo vel. Fringilla ut morbi tincidunt augue interdum velit euismod
-            in. Nulla aliquet enim tortor at auctor urna. Nunc pulvinar sapien et ligula ullamcorper. Tincidunt tortor
-            aliquam nulla facilisi cras fermentum odio. Interdum velit euismod in pellentesque massa placerat duis
-            ultricies lacus. Egestas sed tempus urna et pharetra pharetra massa massa.
-
-            Duis at consectetur lorem donec massa sapien. Turpis egestas maecenas pharetra convallis. Amet purus gravida
-            quis blandit turpis cursus in. Mauris a diam maecenas sed enim. Laoreet sit amet cursus sit. Nec tincidunt
-            praesent semper feugiat nibh sed pulvinar proin gravida. Nibh nisl condimentum id venenatis a condimentum.
-            Egestas integer eget aliquet nibh praesent tristique. A diam sollicitudin tempor id. Mi quis hendrerit dolor
-            magna eget est. Sagittis eu volutpat odio facilisis mauris sit. Volutpat diam ut venenatis tellus in.
-            Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non. Cras adipiscing enim eu turpis.
-            Nibh tortor id aliquet lectus proin. Dis parturient montes nascetur ridiculus mus mauris vitae ultricies.
-            Sapien pellentesque habitant morbi tristique senectus et netus. Vel orci porta non pulvinar neque laoreet.
-            Quisque non tellus orci ac. Erat nam at lectus urna duis convallis convallis.
-
-            Nisl nunc mi ipsum faucibus vitae aliquet nec. Sit amet risus nullam eget felis eget nunc lobortis mattis.
-            Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Ipsum suspendisse ultrices gravida
-            dictum fusce. Libero enim sed faucibus turpis. Accumsan lacus vel facilisis volutpat est. Maecenas pharetra
-            convallis posuere morbi leo urna molestie. Mi in nulla posuere sollicitudin aliquam. Tristique senectus et
-            netus et malesuada fames ac turpis egestas. Fermentum et sollicitudin ac orci phasellus egestas tellus
-            rutrum. Mi in nulla posuere sollicitudin. Ac placerat vestibulum lectus mauris ultrices eros in cursus
-            turpis. Nibh venenatis cras sed felis eget. Ornare arcu odio ut sem nulla. Porttitor leo a diam sollicitudin
-            tempor id. Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Egestas dui id ornare arcu.
+        <div id="home-menu" class="home-menu" *ngIf="(ViewData | async)?.Buttons as BannerButtons">
+            <mat-list role="list">
+                <mat-list-item role="listitem" *ngFor="let button of BannerButtons">
+                    <button class="list-button" mat-button color="primary" [routerLink]="[button.RouterLink]">
+                        <mat-icon>{{button.Icon}}</mat-icon> {{button.Display}}
+                    </button>
+                </mat-list-item>
+            </mat-list>
         </div>
-    </div>
-    <div id="home-menu" class="home-menu">
-        <mat-list role="list">
-            <mat-list-item role="listitem">
-                <button class="list-button" mat-button color="primary" [routerLink]="['/listings']">
-                    <mat-icon>list</mat-icon> Listings
-                </button>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-                <button class="list-button" mat-button color="primary">
-                    <mat-icon>map</mat-icon> Map
-                </button>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-                <button class="list-button" mat-button color="primary">
-                    <mat-icon>mail</mat-icon> Contact Me
-                </button>
-            </mat-list-item>
-            <mat-list-item role="listitem">
-                <button class="list-button" mat-button color="primary">
-                    <mat-icon>person</mat-icon> About Me
-                </button>
-            </mat-list-item>
-        </mat-list>
     </div>
 </div>

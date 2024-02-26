@@ -1,0 +1,27 @@
+[
+        {
+            "Path": "",
+            "Template": "banner",
+            "DataUrl": "/assets/pages/home.json"
+        },
+        {
+            "Path": "listings",
+            "Template": "list",
+            "DataUrl": "/assets/pages/listings.json"
+        },
+        {
+            "Path": "map",
+            "Template": "map",
+            "DataUrl": "/assets/pages/map.json"
+        },
+        {
+            "Path": "contact",
+            "Template": "contact",
+            "DataUrl": "/assets/pages/contact.json"
+        },
+        {
+            "Path": "profile",
+            "Template": "profile",
+            "DataUrl": "/assets/pages/profile.json"
+        }
+    ]

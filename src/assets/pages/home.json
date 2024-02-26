@@ -1,0 +1,30 @@
+{
+    "Avatar": "/assets/images/agent.jpg",
+    "Banner": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg",
+    "Header": "Jeff Morris",
+    "SubHeader": "RE/MAX",
+    "Caption": "Trussville, AL",
+    "Content": "Life-long resident of the Greater Birmingham Area with a history of service to my community. I can't wait to help you!",
+    "Buttons": [
+        {
+            "Icon": "list",
+            "Display": "Listings",
+            "RouterLink": "/listings"
+        },
+        {
+            "Icon": "map",
+            "Display": "Map",
+            "RouterLink": "/map"
+        },
+        {
+            "Icon": "mail",
+            "Display": "Contact",
+            "RouterLink": "/contact"
+        },
+        {
+            "Icon": "person",
+            "Display": "About",
+            "RouterLink": "/about"
+        }
+    ]
+}
