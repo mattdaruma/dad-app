@@ -27,19 +27,33 @@ export class ConfigService {
       for(let route of routes){
         let newRoute: Route = {path: route.Path}
         if(newRoute.path == '') newRoute.pathMatch = 'full'
-        if(route.Template == 'banner') newRoute.loadComponent = () => import('./home/home.component').then(m => m.HomeComponent)
-        else newRoute.loadComponent = () => import('./listings/listings.component').then(m => m.ListingsComponent)
+        if(route.Template == 'banner') {
+          newRoute.loadComponent = () => import('./templates/banner/banner.component').then(m => m.BannerComponent)
+        }else if(route.Template == 'list') { 
+          newRoute.loadComponent = () => import('./templates/list/list.component').then(m => m.ListComponent)
+        }else {
+          newRoute.loadComponent = () => import('./errors/no-template/no-template.component').then(m => m.NoTemplateComponent)
+          newRoute.data = route
+        }
         newRoute.data = route
         appRoutes.push(newRoute)
       }
       appRoutes.push({
         path: '**',
-        redirectTo: '/'
+        loadComponent: () => import('./errors/not-found/not-found.component').then(m => m.NotFoundComponent),
       })
       this.router.resetConfig(appRoutes)
+      console.log('🤠 Routes Loaded.  Welcome to DAD-APP!')
       return true
     })
   }
+}
+
+export interface DadError {
+  Title: string
+  Message: string
+  Timestamp: Date
+  Error: any
 }
 
 export interface DadConfig {

@@ -1,0 +1,65 @@
+@import './../../../../styles.scss';
+#filter-container{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1em;
+}
+.filter-group{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    flex-grow: 1;
+    @include xs{
+        width: calc(100%);
+        flex-basis: calc(100%);
+    }
+    @include sm{
+        width: calc(48%);
+        flex-basis: calc(40%);
+    }
+    @include md{
+        width: calc(30%);
+        flex-basis: calc(30%);
+    }
+    @include lg{
+        width: calc(20%);
+        flex-basis: calc(20%);
+        width: calc(30%);
+        flex-basis: calc(30%);
+    }
+    @include xl{
+        width: calc(10%);
+        flex-basis: calc(10%);
+    }
+}
+.filter-inner-group{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    flex-grow: 1;
+}
+.small-input{
+    width: 6em;
+    flex-grow: 1;
+}
+.medium-input{
+    width: 6em;
+    flex-grow: 1;
+}
+.large-input{
+    width: 8em;
+    flex-grow: 1;
+}
+.mat-caption{
+    padding: 1em;
+}   
+h4{
+    width: 100%
+}

@@ -4,8 +4,6 @@ import { Router, RouterModule, provideRouter } from '@angular/router';
 import { baseRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Config } from './config.interface';
-import { first, map, shareReplay, tap } from 'rxjs';
 import { ConfigService } from './config.service';
 
 

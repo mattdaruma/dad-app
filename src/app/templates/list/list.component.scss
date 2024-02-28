@@ -1,0 +1,36 @@
+@import './../../../styles.scss';
+
+#listing-filters-container {
+    padding: 1em;
+}
+
+#listing-result-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 1em;
+}
+
+.listing-card-container {
+    flex-grow: 1;
+    @include xs{
+        width: calc(100%);
+        flex-basis: calc(100%);
+    }
+    @include sm{
+        width: calc(48%);
+        flex-basis: calc(40%);
+    }
+    @include md{
+        width: calc(30%);
+        flex-basis: calc(30%);
+    }
+    @include lg{
+        width: calc(20%);
+        flex-basis: calc(20%);
+    }
+    @include xl{
+        width: calc(10%);
+        flex-basis: calc(10%);
+    }
+} 
