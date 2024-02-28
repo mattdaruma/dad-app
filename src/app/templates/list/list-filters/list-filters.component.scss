@@ -25,12 +25,12 @@
     @include md{
         width: calc(30%);
         flex-basis: calc(30%);
+        width: calc(48%);
+        flex-basis: calc(40%);
     }
     @include lg{
         width: calc(20%);
         flex-basis: calc(20%);
-        width: calc(30%);
-        flex-basis: calc(30%);
     }
     @include xl{
         width: calc(10%);
@@ -57,9 +57,6 @@
     width: 8em;
     flex-grow: 1;
 }
-.mat-caption{
+.text-suffix{
     padding: 1em;
 }   
-h4{
-    width: 100%
-}
