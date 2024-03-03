@@ -10,22 +10,177 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-@mixin xs {
-    @media #{'screen and (max-width: 599px)'} { @content; }
+.content-width-cap{
+    max-width: 960px;
+}
+.center-flex{
+
+    display: flex;
+    justify-content: center;
 }
 
-@mixin sm {
-    @media #{'screen and (min-width: 600px) and (max-width: 959px)'} { @content; }
-}
 
-@mixin md {
-    @media #{'screen and (min-width: 960px) and (max-width: 1279px)'} { @content; }
-}
+// .mdc-checkbox__checkmark,
+// .mat-mdc-floating-label{
+//   color: var(--theme-primary-500);
+// }
 
-@mixin lg {
-    @media #{'screen and (min-width: 1280px) and (max-width: 1919px)'} { @content; }
-}
+// .mat-mdc-input-element{
+//   color: var(--theme-text);
+// }
 
-@mixin xl {
-    @media #{'screen and (min-width: 1920px) and (max-width: 5000px)'} { @content; }
-}
+// .mdc-text-field--filled{
+//   background-color: rgba(0, 0, 0, .05) !important;
+// }
+
+
+// :root {
+//   --theme-background: #fafafa;
+//   --theme-foreground: black;
+//   --theme-divider: rgba(black, 0.12);
+//   --theme-dividers: rgba(black, 0.12);
+//   --theme-disabled-text: rgba(black, 0.38);
+//   --theme-disabled-button-foreground: rgba(black, 0.26);
+//   --theme-disabled-button-background: rgba(black, 0.12);
+//   --theme-elevation: black;
+//   --theme-secondary-text: rgba(black, 0.54);
+//   --theme-icon: rgba(black, 0.54);
+//   --theme-icons: rgba(black, 0.54);
+//   --theme-text: rgba(black, 0.87);
+//   --theme-slider-min: rgba(black, 0.87);
+//   --theme-slider-off: rgba(black, 0.26);
+//   --theme-slider-off-active: rgba(black, 0.38);
+//   --theme-status-bar: #e0e0e0;
+//   --theme-app-bar: #f5f5f5;
+//   --theme-hover: rgba(black, 0.04);
+//   --theme-card: #FFF;
+//   --theme-dialog: white;
+//   --theme-raised-button: white;
+//   --theme-focused-button: rgba(black, 0.12);
+//   --theme-selected-button: #e0e0e0;
+//   --theme-selected-disabled-button: #bdbdbd;
+//   --theme-disabled-button-toggle: #eeeeee;
+//   --theme-unselected-chip: #e0e0e0;
+//   --theme-disabled-list-option: #eeeeee;
+//   --theme-tooltip: #616161;
+// }
+
+
+
+// :root {
+//     --theme-background: #f00;
+//     --theme-foreground: #F00;
+//     --theme-divider: #F00;
+//     --theme-dividers: #F00;
+//     --theme-disabled-text: #F00;
+//     --theme-disabled-button-foreground: #F00;
+//     --theme-disabled-button-background: #F00;
+//     --theme-elevation: #F00;
+//     --theme-secondary-text: #F00;
+//     --theme-icon: #F00;
+//     --theme-icons: #F00;
+//     --theme-text: #F00;
+//     --theme-slider-min: #F00;
+//     --theme-slider-off: #F00;
+//     --theme-slider-off-active: #F00;
+//     --theme-status-bar: #F00;
+//     --theme-app-bar: #F00;
+//     --theme-hover: #F00;
+//     --theme-card: #F00;
+//     --theme-dialog: #F00;
+//     --theme-raised-button: #F00;
+//     --theme-focused-button: #F00;
+//     --theme-selected-button: #F00;
+//     --theme-selected-disabled-button: #F00;
+//     --theme-disabled-button-toggle: #F00;
+//     --theme-unselected-chip: #F00;
+//     --theme-disabled-list-option: #F00;
+//     --theme-tooltip: #F00;
+//     --theme-primary-50: #F00;
+//     --theme-primary-100: #F00;
+//     --theme-primary-200: #F00;
+//     --theme-primary-300: #F00;
+//     --theme-primary-400: #F00;
+//     --theme-primary-500: #F00;
+//     --theme-primary-600: #F00;
+//     --theme-primary-700: #F00;
+//     --theme-primary-800: #F00;
+//     --theme-primary-900: #F00;
+//     --theme-primary-A100: #F00;
+//     --theme-primary-A200: #F00;
+//     --theme-primary-A400: #F00;
+//     --theme-primary-A700: #F00;
+//     --theme-primary-contrast-50: #00F;
+//     --theme-primary-contrast-100: #00F;
+//     --theme-primary-contrast-200: #00F;
+//     --theme-primary-contrast-300: #00F;
+//     --theme-primary-contrast-400: #00F;
+//     --theme-primary-contrast-500: #00F;
+//     --theme-primary-contrast-600: #00F;
+//     --theme-primary-contrast-700: #00F;
+//     --theme-primary-contrast-800: #00F;
+//     --theme-primary-contrast-900: #00F;
+//     --theme-primary-contrast-A100: #00F;
+//     --theme-primary-contrast-A200: #00F;
+//     --theme-primary-contrast-A400: #00F;
+//     --theme-primary-contrast-A700: #00F;
+//     --theme-accent-50: #F00;
+//     --theme-accent-100: #F00;
+//     --theme-accent-200: #F00;
+//     --theme-accent-300: #F00;
+//     --theme-accent-400: #F00;
+//     --theme-accent-500: #F00;
+//     --theme-accent-600: #F00;
+//     --theme-accent-700: #F00;
+//     --theme-accent-800: #F00;
+//     --theme-accent-900: #F00;
+//     --theme-accent-A100: #F00;
+//     --theme-accent-A200: #F00;
+//     --theme-accent-A400: #F00;
+//     --theme-accent-A700: #F00;
+//     --theme-accent-contrast-50: #F00;
+//     --theme-accent-contrast-100: #F00;
+//     --theme-accent-contrast-200: #F00;
+//     --theme-accent-contrast-300: #F00;
+//     --theme-accent-contrast-400: #F00;
+//     --theme-accent-contrast-500: #F00;
+//     --theme-accent-contrast-600: #F00;
+//     --theme-accent-contrast-700: #F00;
+//     --theme-accent-contrast-800: #F00;
+//     --theme-accent-contrast-900: #F00;
+//     --theme-accent-contrast-A100: #F00;
+//     --theme-accent-contrast-A200: #F00;
+//     --theme-accent-contrast-A400: #F00;
+//     --theme-accent-contrast-A700: #F00;
+//     --theme-warn-50: #F00;
+//     --theme-warn-100: #F00;
+//     --theme-warn-200: #F00;
+//     --theme-warn-300: #F00;
+//     --theme-warn-400: #F00;
+//     --theme-warn-500: #F00;
+//     --theme-warn-600: #F00;
+//     --theme-warn-700: #F00;
+//     --theme-warn-800: #F00;
+//     --theme-warn-900: #F00;
+//     --theme-warn-A100: #F00;
+//     --theme-warn-A200: #F00;
+//     --theme-warn-A400: #F00;
+//     --theme-warn-A700: #F00;
+//     --theme-warn-contrast-50: #F00;
+//     --theme-warn-contrast-100: #F00;
+//     --theme-warn-contrast-200: #F00;
+//     --theme-warn-contrast-300: #F00;
+//     --theme-warn-contrast-400: #F00;
+//     --theme-warn-contrast-500: #F00;
+//     --theme-warn-contrast-600: #F00;
+//     --theme-warn-contrast-700: #F00;
+//     --theme-warn-contrast-800: #F00;
+//     --theme-warn-contrast-900: #F00;
+//     --theme-warn-contrast-A100: #F00;
+//     --theme-warn-contrast-A200: #F00;
+//     --theme-warn-contrast-A400: #F00;
+//     --theme-warn-contrast-A700: #F00;
+//   }
+  
+  
+  

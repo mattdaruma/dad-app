@@ -1,0 +1,11 @@
+<h4 class="center-flex">Smart Color Picker</h4>
+<div class="center-flex">
+    <span [style.background]="color"
+          [cpToggle]="true"
+          [cpDialogDisplay]="'inline'"
+          [(colorPicker)]="color"
+          [cpAlphaChannel]="'always'"
+          [cpOutputFormat]="'rgba'"
+          (colorPickerChange)="SeedColorSelect($event)"
+          ></span>
+</div>

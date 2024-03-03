@@ -5,6 +5,11 @@
             "DataUrl": "/assets/pages/home.json"
         },
         {
+            "Path": "settings",
+            "Template": "settings",
+            "DataUrl": null
+        },
+        {
             "Path": "listings",
             "Template": "list",
             "DataUrl": "/assets/pages/listings.json"

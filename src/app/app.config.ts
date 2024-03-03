@@ -1,9 +1,8 @@
-import { APP_INITIALIZER, ApplicationConfig, Injectable, InjectionToken, importProvidersFrom } from '@angular/core';
-import { Router, RouterModule, provideRouter } from '@angular/router';
+import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
-import { baseRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './config.service';
 
 
@@ -12,8 +11,6 @@ export interface DadRoute {
   Template: string,
   Data: string
 }
-let DadRoutes: DadRoute[] = []
-
 
 export function loadDadConfig(config: ConfigService) {
   return () => config.load()
@@ -22,7 +19,7 @@ export function loadDadConfig(config: ConfigService) {
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(HttpClientModule), 
-    provideRouter(baseRoutes), 
+    provideRouter([]), 
     provideAnimationsAsync(),
     {
       provide: APP_INITIALIZER,
