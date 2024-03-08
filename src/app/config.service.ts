@@ -12,7 +12,7 @@ export class ConfigService {
   Icon: string = 'person'
   Title: string = 'DEFAULT TITLE'
   Nav: DadNav[] = []
-  constructor(private http: HttpClient, private router: Router, private readonly title: Title) { }
+  constructor(private http: HttpClient, private router: Router, private readonly title: Title) {   }
   load() {
     return forkJoin([
       this.http.get<DadConfig>('/assets/dad-config.json'),
@@ -53,35 +53,90 @@ export class ConfigService {
 
   private lightPrimaryText = 'rgba(255, 255, 255, 1)'
   private darkPrimaryText = 'rgba(0, 0, 0, .87)'
-  autoColor: string = 'rgba(200, 0, 0, 1)'
-  private rotateColor: any;
+  private primary = colord('rgba(25, 25, 25, 1)')
+  private raveInterval: any
+  private redUp: boolean = false;
+  private greenUp: boolean = false;
+  private blueUp: boolean = false;
+  private raveTurn: number = 1;
+  private raveIntervalMilliseconds: number = 30
+  private raveStepSize = 5
+  // light max threshold: 126
+  private raveMaxSize = 125
+  // dark min threshold: 150
+  private raveMinSize = 25
+  private raveColor: 'red' | 'green' | 'blue' = 'red'
   StartRave() {
-    this.rotateColor = setInterval(() => {
-      let currentColor = colord(this.autoColor).rgba
-      if ((currentColor.r > 0 && currentColor.g > 0) || currentColor.r == 200) {
-        currentColor.r -= 5
-        currentColor.g += 5
-      } else if ((currentColor.g > 0 && currentColor.b > 0) || currentColor.g == 200) {
-        currentColor.r = 0
-        currentColor.g -= 5
-        currentColor.b += 5
-      } else if ((currentColor.b > 0 && currentColor.r > 0) || currentColor.b == 200) {
-        currentColor.g = 0
-        currentColor.b -= 5
-        currentColor.r += 5
+    this.raveInterval = setInterval(() => {
+      // if ((currentColor.r > 0 && currentColor.g > 0) || currentColor.r == 200) {
+      //   currentColor.r -= 5
+      //   currentColor.b = 0
+      //   currentColor.g += 5
+      // } else if ((currentColor.g > 0 && currentColor.b > 0) || currentColor.g == 200) {
+      //   currentColor.r = 0
+      //   currentColor.g -= 5
+      //   currentColor.b += 5
+      // } else if ((currentColor.b > 0 && currentColor.r > 0) || currentColor.b == 200) {
+      //   currentColor.g = 0
+      //   currentColor.b -= 5
+      //   currentColor.r += 5
+      // }
+      //console.warn('ravestep', this.primary.rgba.r, this.primary.rgba.g, this.primary.rgba.b)
+      if (this.raveTurn % (this.raveColor == 'red' ? 4 : this.raveColor == 'green' ? 2 : 1) == 0) {
+        if (this.redUp) this.primary.rgba.r += this.raveStepSize
+        else this.primary.rgba.r -= this.raveStepSize
+        if (this.primary.rgba.r >= this.raveMaxSize) {
+          this.primary.rgba.r = this.raveMaxSize
+          this.redUp = false
+        }
+        if (this.primary.rgba.r <= this.raveMinSize) {
+          this.primary.rgba.r = this.raveMinSize
+          this.redUp = true
+        }
       }
-      this.autoColor = `rgba(${currentColor.r}, ${currentColor.g}, ${currentColor.b}, 1)`
-      this.SeedColor(this.autoColor)
-    }, 30)
+      if (this.raveTurn % (this.raveColor == 'green' ? 4 : this.raveColor == 'blue' ? 2 : 1) == 0) {
+        if (this.greenUp) this.primary.rgba.g += this.raveStepSize
+        else this.primary.rgba.g -= this.raveStepSize
+        if (this.primary.rgba.g >= this.raveMaxSize) {
+          this.primary.rgba.g = this.raveMaxSize
+          this.greenUp = false
+        }
+        if (this.primary.rgba.g <= this.raveMinSize) {
+          this.primary.rgba.g = this.raveMinSize
+          this.greenUp = true
+        }
+      }
+      if (this.raveTurn % (this.raveColor == 'blue' ? 4 : this.raveColor == 'red' ? 2 : 1) == 0) {
+        if (this.blueUp) this.primary.rgba.b += this.raveStepSize
+        else this.primary.rgba.b -= this.raveStepSize
+        if (this.primary.rgba.b >= this.raveMaxSize) {
+          this.primary.rgba.b = this.raveMaxSize
+          this.blueUp = false
+        }
+        if (this.primary.rgba.b <= this.raveMinSize) {
+          this.primary.rgba.b = this.raveMinSize
+          this.blueUp = true
+        }
+      }
+      this.raveTurn++
+      if(this.raveTurn > (((this.raveMaxSize - this.raveMinSize)/this.raveStepSize)*2)){
+        let originalColor = JSON.parse(JSON.stringify(this.raveColor))
+        if(originalColor == 'red') this.raveColor = 'green'
+        else if(originalColor == 'green') this.raveColor = 'blue'
+        else this.raveColor = 'red'
+        this.raveTurn = 1
+      }
+      let rgbtext = `rgba(${this.primary.rgba.r}, ${this.primary.rgba.g}, ${this.primary.rgba.b}, 1)`
+      this.SeedColor(rgbtext)
+    }, this.raveIntervalMilliseconds)
   }
-  StopRave(){
-    clearInterval(this.rotateColor)
+  StopRave() {
+    clearInterval(this.raveInterval)
   }
-  SeedColor(rgba: string) {
-    this.autoColor = rgba
+  SeedColor(rgba: string = `rgba(${this.primary.rgba.r}, ${this.primary.rgba.g}, ${this.primary.rgba.b}, 1)`) {
     let isDark = colord(rgba).isLight()
-    let primary = colord(rgba)
-    let primaryHues = this.ComputeHues(primary.toRgbString())
+    let primary = this.primary = colord(rgba)
+    let primaryHues = this.computeHues(primary.toRgbString())
     for (let hue of primaryHues) {
       document.documentElement.style.setProperty(`--theme-primary-${hue.hue}`, hue.color.toRgbString())
       if (hue.color.isLight()) {
@@ -91,7 +146,7 @@ export class ConfigService {
       }
     }
     let accent = colord(`rgba(${primary.rgba.b},${primary.rgba.r},${primary.rgba.g},1)`)
-    let accentHues = this.ComputeHues(accent.toRgbString())
+    let accentHues = this.computeHues(accent.toRgbString())
     for (let hue of accentHues) {
       document.documentElement.style.setProperty(`--theme-accent-${hue.hue}`, hue.color.toRgbString())
       if (hue.color.isLight()) {
@@ -101,7 +156,7 @@ export class ConfigService {
       }
     }
     let warn = colord('f44336')
-    let warnHues = this.ComputeHues(warn.toRgbString())
+    let warnHues = this.computeHues(warn.toRgbString())
     for (let hue of warnHues) {
       document.documentElement.style.setProperty(`--theme-warn-${hue.hue}`, hue.color.toRgbString())
       if (hue.color.isLight()) {
@@ -110,7 +165,6 @@ export class ConfigService {
         document.documentElement.style.setProperty(`--theme-warn-contrast-${hue.hue}`, this.lightPrimaryText)
       }
     }
-
     var body = document.getElementsByClassName('mat-app-background')![0]
     if (isDark) {
       if (!body.classList.contains('theme-dark')) {
@@ -122,7 +176,7 @@ export class ConfigService {
       }
     }
   }
-  ComputeHues(rgba: string) {
+  private computeHues(rgba: string) {
     return [
       { hue: '50', color: colord(rgba).lighten(52) },
       { hue: '100', color: colord(rgba).lighten(37) },

@@ -1,6 +1,6 @@
 <div id="dad-app-header" class="dad-app-header">
-  <mat-toolbar color="primary" class="dad-app-toolbar">
-    <button mat-icon-button [routerLink]="['/']">
+  <mat-toolbar color="default" class="dad-app-toolbar">
+    <button mat-icon-button color="primary" [routerLink]="['/']">
       <mat-icon id="dad-app-header-icon" class="dad-app-header-icon">{{config.Icon}}</mat-icon>
     </button>
     <span [routerLink]="['/']" id="dad-app-header-title" class="dad-app-header-title">
@@ -8,10 +8,10 @@
     </span>
     <span class="toolbar-spacer"></span>
     <button mat-icon-button color="accent" [routerLink]="['/settings']"><mat-icon>settings</mat-icon></button>
-    <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button color="primary" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
     <mat-menu #menu="matMenu">
-      <button *ngFor="let nav of config.Nav" mat-menu-item [routerLink]="[nav.RouterLink]">
-        <mat-icon>{{nav.Icon}}</mat-icon>
+      <button color="primary" *ngFor="let nav of config.Nav" mat-menu-item [routerLink]="[nav.RouterLink]">
+        <mat-icon color="primary">{{nav.Icon}}</mat-icon>
         <span>{{nav.Display}}</span>
       </button>
     </mat-menu>

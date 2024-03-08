@@ -48,7 +48,6 @@ export class AppComponent implements AfterViewInit {
     //document.documentElement.style.setProperty("--theme-background", "#F00")
   }
   ngAfterViewInit(): void {
-    var body = document.getElementsByClassName('mat-app-background')![0]
-    body.classList.add("theme-dark")
+    this.config.SeedColor()
   }
 }
