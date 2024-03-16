@@ -1,17 +1,37 @@
 @import './../../../mixins.scss';
 
-#listing-filters-container {
-    padding: 1em;
-}
-
-#listing-result-container {
+.list-item-card-grid-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     padding: 1em;
 }
+.list-item-rows-card{
+    width: 100%;
+}
 
-.listing-card-container {
+.list-item-rows-container{
+    padding: 1em;
+}
+
+.list-item-row {
+    padding: 0 1em 0 1em;
+}
+
+.list-item-row-image{
+    width: 20em;
+}
+
+.list-item-row-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    padding: 1em;
+    gap: 1em;
+}
+
+.list-item-grid-card-container {
     flex-grow: 1;
     @include xs{
         width: calc(100%);

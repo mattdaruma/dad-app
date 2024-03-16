@@ -9,32 +9,42 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, combineLatest, concatAll, map, startWith } from 'rxjs';
 import { ListItem } from './list-item.interface';
+import {MatDividerModule} from '@angular/material/divider'; 
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, MatTabsModule, MatIconModule, ListFiltersComponent,
-    ListCardComponent, ListTablecomponent],
+  imports: [CommonModule, MatTabsModule, MatIconModule, ListFiltersComponent, MatCardModule,
+    MatDividerModule, ListCardComponent, ListTablecomponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-  private List = this.route.data.pipe(
-    map(data => this.http.get<ListItem[]>(data['DataUrl'])),
+  private ListData = this.route.data.pipe(
+    map(data => this.http.get<ListData>(data['DataUrl'])),
     concatAll()
   )
-  public PageChange = new Subject<ListPaging>()
-  public FilterChange = new Subject<string>()
-  public PagedListings = combineLatest([
-    this.List,
-    this.PageChange.pipe(startWith({ Index: 0, Size: 10 })),
-    this.FilterChange.pipe(startWith('firstfilterchange'))
+  private ListItems = this.ListData.pipe(map(listData => listData.ListItems))
+  private FilterChange = (new Subject<string>()).pipe(startWith('firstfilterchange'))
+  public View = this.ListData.pipe(map(listData => listData.View))
+  public PageChange = this.ListData.pipe(map(listData => listData.Paging))
+  public Filters = this.ListData.pipe(map(listData => listData.Filters))
+  public PagedItems = combineLatest([
+    this.ListItems,
+    this.PageChange,
+    this.FilterChange
   ]).pipe(
     map(values => {
       let list = values[0]
       let paging = values[1]
       let filters = values[2]
-      return list.slice(paging.Index, (paging.Index + 1) * paging.Size)
+      console.warn('PAGE')
+      if(paging){
+        return list.slice(paging.Index, (paging.Index + 1) * paging.Size)
+      }else{
+        return list
+      }
     })
   )
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
@@ -43,3 +53,11 @@ export interface ListPaging {
   Index: number,
   Size: number
 }
+export interface ListData{
+  Filters?: ListFilter[]
+  Paging?: ListPaging
+  ListItems: ListItem[]
+  View: 'row' | 'grid'
+}
+export interface ListFilter{}
+export interface ListFilterChange{}

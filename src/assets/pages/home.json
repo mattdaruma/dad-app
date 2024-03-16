@@ -14,7 +14,7 @@
         {
             "Icon": "diversity_3",
             "Display": "Friends",
-            "RouterLink": "/listings"
+            "RouterLink": "/friends"
         },
         {
             "Icon": "mail",

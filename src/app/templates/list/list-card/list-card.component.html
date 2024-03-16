@@ -1,13 +1,13 @@
 <mat-card class="listing-card">
-    <img mat-card-image [src]="Listing.Image" alt="Listing Image">
+    <img mat-card-image [src]="ListItem.Image" alt="ListItem Image">
     <mat-card-content>
-        <h2>{{Listing.Price | currency: 'USD'}}</h2>
+        <h2>{{ListItem.Price | currency: 'USD'}}</h2>
         <h3>
-            <span class="room-count">{{Listing.Bed ?? 0}}</span> Bed
-            <span class="room-count">{{Listing.Bath ?? 0}}</span> Bath
+            <span class="room-count">{{ListItem.Bed ?? 0}}</span> Bed
+            <span class="room-count">{{ListItem.Bath ?? 0}}</span> Bath
         </h3>
-        <h4>{{Listing.Street}} <br *ngIf="Listing.City || Listing.State" />
-            {{Listing.City}}{{Listing.State ? ', ' + Listing.State : ''}}</h4>
+        <h4>{{ListItem.Street}} <br *ngIf="ListItem.City || ListItem.State" />
+            {{ListItem.City}}{{ListItem.State ? ', ' + ListItem.State : ''}}</h4>
     </mat-card-content>
     <mat-card-actions>
         <button color="primary" mat-button>LIKE</button>

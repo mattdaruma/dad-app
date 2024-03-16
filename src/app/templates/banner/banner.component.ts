@@ -18,11 +18,10 @@ import { Subject, first } from 'rxjs';
 export class BannerComponent {
   ViewData = new Subject<BannerData>()
   @ViewChild('bannerImage') set Banner(banner: ElementRef){
+    var styles = getComputedStyle(banner.nativeElement.parentElement.parentElement.parentElement.parentElement)
+    console.warn('STYLES', styles.backgroundColor)
     this.ViewData.pipe(first()).subscribe(view => {
-      if(view?.Banner){
-        banner.nativeElement.style.backgroundImage = `url(${view?.Banner})`
-      }else{
-      }
+      banner.nativeElement.style.backgroundImage = `url(${view?.Banner})`
     })
   }
   @ViewChild('bannerAvatar') set Avatar(banner: ElementRef){

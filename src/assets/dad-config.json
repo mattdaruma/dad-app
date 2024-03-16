@@ -9,14 +9,19 @@
             "Display": "Home"
         },
         {
+            "RouterLink": "/friends",
+            "Icon": "diversity_3",
+            "Display": "Friends"
+        },
+        {
             "RouterLink": "/contact",
             "Icon": "mail",
             "Display": "Contact"
         },
         {
-            "RouterLink": "/profile",
+            "RouterLink": "/about",
             "Icon": "person",
-            "Display": "Profile"
+            "Display": "About"
         }
     ]
 }

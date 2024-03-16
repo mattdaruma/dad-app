@@ -33,6 +33,8 @@ export class ConfigService {
           newRoute.loadComponent = () => import('./templates/banner/banner.component').then(m => m.BannerComponent)
         } else if (route.Template == 'list') {
           newRoute.loadComponent = () => import('./templates/list/list.component').then(m => m.ListComponent)
+        } else if (route.Template == 'contact') {
+          newRoute.loadComponent = () => import('./templates/contact/contact.component').then(m => m.ContactComponent)
         } else {
           newRoute.loadComponent = () => import('./errors/no-template/no-template.component').then(m => m.NoTemplateComponent)
           newRoute.data = route
@@ -59,8 +61,8 @@ export class ConfigService {
   private greenUp: boolean = false;
   private blueUp: boolean = false;
   private raveTurn: number = 1;
-  private raveIntervalMilliseconds: number = 30
-  private raveStepSize = 5
+  private raveIntervalMilliseconds: number = 150
+  private raveStepSize = 25
   // light max threshold: 126
   private raveMaxSize = 125
   // dark min threshold: 150
@@ -68,20 +70,6 @@ export class ConfigService {
   private raveColor: 'red' | 'green' | 'blue' = 'red'
   StartRave() {
     this.raveInterval = setInterval(() => {
-      // if ((currentColor.r > 0 && currentColor.g > 0) || currentColor.r == 200) {
-      //   currentColor.r -= 5
-      //   currentColor.b = 0
-      //   currentColor.g += 5
-      // } else if ((currentColor.g > 0 && currentColor.b > 0) || currentColor.g == 200) {
-      //   currentColor.r = 0
-      //   currentColor.g -= 5
-      //   currentColor.b += 5
-      // } else if ((currentColor.b > 0 && currentColor.r > 0) || currentColor.b == 200) {
-      //   currentColor.g = 0
-      //   currentColor.b -= 5
-      //   currentColor.r += 5
-      // }
-      //console.warn('ravestep', this.primary.rgba.r, this.primary.rgba.g, this.primary.rgba.b)
       if (this.raveTurn % (this.raveColor == 'red' ? 4 : this.raveColor == 'green' ? 2 : 1) == 0) {
         if (this.redUp) this.primary.rgba.r += this.raveStepSize
         else this.primary.rgba.r -= this.raveStepSize
@@ -175,6 +163,8 @@ export class ConfigService {
         body.classList.remove("theme-dark")
       }
     }
+    var bodyStyles = getComputedStyle(body)
+    document.documentElement.style.setProperty(`--theme-fuzz`, bodyStyles.backgroundColor)
   }
   private computeHues(rgba: string) {
     return [

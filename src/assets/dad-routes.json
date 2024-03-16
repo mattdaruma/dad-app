@@ -10,9 +10,9 @@
             "DataUrl": null
         },
         {
-            "Path": "listings",
+            "Path": "friends",
             "Template": "list",
-            "DataUrl": "/assets/pages/listings.json"
+            "DataUrl": "/assets/pages/friends.json"
         },
         {
             "Path": "map",
@@ -25,8 +25,8 @@
             "DataUrl": "/assets/pages/contact.json"
         },
         {
-            "Path": "profile",
-            "Template": "profile",
-            "DataUrl": "/assets/pages/profile.json"
+            "Path": "about",
+            "Template": "banner",
+            "DataUrl": "/assets/pages/about.json"
         }
     ]

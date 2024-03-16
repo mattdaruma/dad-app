@@ -11,5 +11,5 @@ import { MatCardModule } from '@angular/material/card'
   styleUrl: './list-card.component.scss'
 })
 export class ListCardComponent {
-  @Input() Listing: any
+  @Input() ListItem: any
 }

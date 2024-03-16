@@ -1,13 +1,30 @@
-<div id="listing-filters-container" class="listing-filters-container">
-    <app-listing-filters></app-listing-filters>
-</div>
-<div id="listing-result-container" class="listing-result-container">
-    <div *ngFor="let listing of (PagedListings | async)" class="listing-card-container" ngStyle.xs="display:none">
-        <app-listing-card [Listing]="listing"></app-listing-card>
+<div id="listing-filters-container" class="listing-filters-container" *ngIf="(Filters | async) as filters">
+    <div *ngFor="let filter of filters">
+        list-filter goes here
     </div>
-    <div class="listing-card-container"></div>
-    <div class="listing-card-container"></div>
-    <div class="listing-card-container"></div>
-    <div class="listing-card-container"></div>
-    <div class="listing-card-container"></div>
+</div>
+<div class="list-item-rows-container" *ngIf="(View | async) === 'row'">
+        <div id="list-item-row" class="list-item-row" *ngFor="let item of (PagedItems | async); index as i">
+            <mat-divider *ngIf="i > 0"></mat-divider>
+            <div id="list-item-row-content" class="list-item-row-content">
+                <img class="list-item-row-image" [src]="item.Image" alt="ListItem Image">
+                <div class="list-item-row-text">
+                    <h2>{{item?.Name}}</h2>
+                    <h4><a [href]="item.URL">{{item.URL}}</a></h4>
+                    <p>
+                        {{item?.Description}}
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="list-item-card-grid-container" *ngIf="(View | async) === 'grid'">
+    <div *ngFor="let item of (PagedItems | async)" class="list-item-grid-card-container">
+        <app-listing-card [ListItem]="item"></app-listing-card>
+    </div>
+    <div class="list-item-grid-card-container"></div>
+    <div class="list-item-grid-card-container"></div>
+    <div class="list-item-grid-card-container"></div>
+    <div class="list-item-grid-card-container"></div>
+    <div class="list-item-grid-card-container"></div>
 </div>

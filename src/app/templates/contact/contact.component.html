@@ -1,0 +1,21 @@
+<div class="contact-card-container">
+    <mat-card class="content-width">
+        <mat-card-content>
+        <mat-form-field color="primary" class="small-input" class="contact-subject">
+            <mat-icon color="primary" matPrefix>title</mat-icon>
+            <mat-label>Subject</mat-label>
+            <input [formControl]="Subject" matInput>
+        </mat-form-field>
+        <div class="contact-attachment-container">
+            <button disabled mat-button color="primary"><mat-icon>attach_file</mat-icon>Attach</button>
+        </div>
+        <div class="contact-quill-container">
+            <quill-editor class="contact-quill" (onContentChanged)="QuillConent($event)">
+            </quill-editor>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="contact-send-container">
+            <button (click)="Send()" mat-button color="primary"><mat-icon>send</mat-icon>Send</button>
+    </mat-card-actions>
+    </mat-card>
+</div>

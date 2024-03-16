@@ -156,7 +156,7 @@ $dynamic-background-palette: (
 
 
 @include mat.core();
-@include mat.strong-focus-indicators();
+//@include mat.strong-focus-indicators();
 @include mat.all-component-themes($dynamic-theme); 
 .theme-dark {
   @include mat.all-component-colors($dynamic-dark-theme); 
