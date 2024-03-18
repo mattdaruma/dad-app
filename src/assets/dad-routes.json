@@ -1,13 +1,8 @@
 [
         {
             "Path": "",
-            "Template": "banner",
+            "Template": "flex",
             "DataUrl": "/assets/pages/home.json"
-        },
-        {
-            "Path": "settings",
-            "Template": "settings",
-            "DataUrl": null
         },
         {
             "Path": "friends",

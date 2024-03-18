@@ -1,4 +1,4 @@
-#bannerImage {
+.banner-image {
     width: 100%;
     height: 30em;
     background-size: cover;
@@ -6,12 +6,12 @@
     box-shadow: inset 0 0 3em 5em var(--theme-fuzz);
 }
 
-#home-container{
+.banner-container{
     display: flex;
     justify-content: center;
     padding: 1em;
 }
-#bannerAvatar{
+.banner-avatar{
     background-image: url('/assets/images/agent.jpg');
     background-size: cover;
     background-position-y: -30px;
@@ -20,23 +20,24 @@
     height: 9em;
     border-radius: 3em;
 }
-.list-button{
-    width: 100%;
-    justify-content: flex-end;
-}
-#home-content-header{
+.home-content-header{
     display: flex;
     align-items:start;
 }
-#home-content-header-text{
+.home-content-header-text{
     padding-left: 1em;
 }
-#home-content-text{
-    padding: 1em;
-}
-#home-content-header-name, 
-#home-content-header-company, 
-#home-content-header-slogan
+.home-content-header-name, 
+.home-content-header-company, 
+.home-content-header-slogan
 {
     margin: 0;
+}
+.upper-actions,
+.lower-actions {
+    display: flex;
+    justify-content: right;
+}
+.view-card-footer{
+    padding: 0 8px 0 8px;
 }

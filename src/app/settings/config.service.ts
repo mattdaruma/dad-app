@@ -12,7 +12,8 @@ export class ConfigService {
   Icon: string = 'person'
   Title: string = 'DEFAULT TITLE'
   Nav: DadNav[] = []
-  constructor(private http: HttpClient, private router: Router, private readonly title: Title) {   }
+  constructor(private http: HttpClient, private router: Router, private readonly title: Title) {  
+   }
   load() {
     return forkJoin([
       this.http.get<DadConfig>('/assets/dad-config.json'),
@@ -27,28 +28,33 @@ export class ConfigService {
       for (let route of routes) {
         let newRoute: Route = { path: route.Path }
         if (newRoute.path == '') newRoute.pathMatch = 'full'
-        if (route.Template == 'settings') {
-          newRoute.loadComponent = () => import('./settings/settings.component').then(m => m.SettingsComponent)
-        } else if (route.Template == 'banner') {
-          newRoute.loadComponent = () => import('./templates/banner/banner.component').then(m => m.BannerComponent)
+        if (route.Template == 'flex') {
+          newRoute.loadComponent = () => import('../templates/flex/flex.component').then(m => m.FlexComponent)
+        } else if (route.Template == 'grid') {
+          newRoute.loadComponent = () => import('../templates/grid/grid.component').then(m => m.GridComponent)
+        } else if (route.Template == 'smart-grid') {
+          newRoute.loadComponent = () => import('../templates/smart-grid/smart-grid.component').then(m => m.SmartGridComponent)
         } else if (route.Template == 'list') {
-          newRoute.loadComponent = () => import('./templates/list/list.component').then(m => m.ListComponent)
-        } else if (route.Template == 'contact') {
-          newRoute.loadComponent = () => import('./templates/contact/contact.component').then(m => m.ContactComponent)
+          newRoute.loadComponent = () => import('../templates/list/list.component').then(m => m.ListComponent)
         } else {
-          newRoute.loadComponent = () => import('./errors/no-template/no-template.component').then(m => m.NoTemplateComponent)
+          newRoute.loadComponent = () => import('../errors/no-template/no-template.component').then(m => m.NoTemplateComponent)
           newRoute.data = route
         }
         newRoute.data = route
         appRoutes.push(newRoute)
       }
       appRoutes.push({
+        path: 'settings',
+        loadComponent: () => import('./settings.component').then(m => m.SettingsComponent)
+      })
+      appRoutes.push({
         path: '**',
-        loadComponent: () => import('./errors/not-found/not-found.component').then(m => m.NotFoundComponent),
+        loadComponent: () => import('../errors/not-found/not-found.component').then(m => m.NotFoundComponent),
       })
       this.router.resetConfig(appRoutes)
       console.log('🤠 Routes Loaded.  Welcome to DAD-APP!')
-      this.StartRave()
+      if(configs.Color) this.SeedColor(configs.Color)
+      //this.StartRave()
       return true
     })
   }
@@ -61,8 +67,8 @@ export class ConfigService {
   private greenUp: boolean = false;
   private blueUp: boolean = false;
   private raveTurn: number = 1;
-  private raveIntervalMilliseconds: number = 150
-  private raveStepSize = 25
+  private raveIntervalMilliseconds: number = 30
+  private raveStepSize = 5
   // light max threshold: 126
   private raveMaxSize = 125
   // dark min threshold: 150
@@ -194,6 +200,7 @@ export interface DadError {
 }
 
 export interface DadConfig {
+  Color: string,
   Icon: string,
   Title: string,
   Nav: DadNav[]

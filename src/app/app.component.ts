@@ -2,10 +2,11 @@ import { AfterViewInit, Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { ActivationStart, Router, RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu'; 
 import { CommonModule } from '@angular/common';
-import { ConfigService } from './config.service';
+import { ConfigService } from './settings/config.service';
+import { filter, map } from 'rxjs';
 
 
 @Component({
@@ -16,9 +17,11 @@ import { ConfigService } from './config.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements AfterViewInit {
-  constructor(public config: ConfigService){
-  }
+  CurrentRoute = this.router.events.pipe(
+    filter(event => event instanceof ActivationStart),
+    map(event => (event as ActivationStart).snapshot)
+    )
+  constructor(public config: ConfigService, public router: Router){}
   ngAfterViewInit(): void {
-    this.config.SeedColor()
   }
 }

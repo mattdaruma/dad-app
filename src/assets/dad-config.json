@@ -2,6 +2,7 @@
     "Favicon": "/assets/images/dad-favicon.ico",
     "Title": "Jeff Morris with RE/MAX",
     "Icon": "house",
+    "Color": "#AAF",
     "Nav": [
         {
             "RouterLink": "/",

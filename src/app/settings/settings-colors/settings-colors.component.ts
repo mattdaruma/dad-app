@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ColorPickerModule } from 'ngx-color-picker';
-import { ConfigService } from '../../config.service';
+import { ConfigService } from '../config.service';
 
 @Component({
   selector: 'app-settings-colors',

@@ -1,11 +1,13 @@
-import { DadNav } from "../../config.service"
+import { DadNav } from "../../settings/config.service"
+import { DadImage } from "../../widgets/dad-image.interface"
 
 export interface BannerData {
     Banner: string
+    Image: DadImage
     Avatar: string
-    Header: string
-    SubHeader: string
-    Caption: string
+    Title: string
+    Subtitle: string
     Content: string
-    Buttons: DadNav[]
+    Actions: DadNav[]
+    Footer: string
 }

@@ -6,34 +6,36 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { BannerData } from './banner-data.interface';
-import { Subject, first } from 'rxjs';
+import { Subject, concatAll, first, map } from 'rxjs';
+import { MatCardModule } from '@angular/material/card';
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatListModule, MatButtonModule, RouterModule],
+  imports: [CommonModule, MatIconModule, MatListModule, MatButtonModule, RouterModule, MatCardModule, QuillModule],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.scss'
 })
 export class BannerComponent {
-  ViewData = new Subject<BannerData>()
-  @ViewChild('bannerImage') set Banner(banner: ElementRef){
-    var styles = getComputedStyle(banner.nativeElement.parentElement.parentElement.parentElement.parentElement)
-    console.warn('STYLES', styles.backgroundColor)
+  private ViewData = this.route.data.pipe(
+    map(data => this.http.get<BannerData>(data['DataUrl'])),
+    concatAll()
+  )
+  public Banner = this.ViewData.pipe(map(data => data.Banner))
+  public Header = this.ViewData.pipe(map(data => data.Title || data.Subtitle || data.Avatar))
+  public Title = this.ViewData.pipe(map(data => data.Title))
+  public Subtitle = this.ViewData.pipe(map(data => data.Subtitle))
+  public Avatar = this.ViewData.pipe(map(data => data.Avatar))
+  public Image = this.ViewData.pipe(map(data => data.Image))
+  public Content = this.ViewData.pipe(map(data => data.Content))
+  public Actions = this.ViewData.pipe(map(data => data.Actions))
+  public Footer = this.ViewData.pipe(map(data => data.Footer))
+  @ViewChild('bannerImage') set BannerImage(banner: ElementRef){
     this.ViewData.pipe(first()).subscribe(view => {
       banner.nativeElement.style.backgroundImage = `url(${view?.Banner})`
     })
   }
-  @ViewChild('bannerAvatar') set Avatar(banner: ElementRef){
-    this.ViewData.pipe(first()).subscribe(view => {
-      banner.nativeElement.style.backgroundImage = `url(${view.Avatar})`
-    })
-  }
   constructor(public http: HttpClient, private route: ActivatedRoute){
-    route.data.subscribe(d => {
-      http.get<BannerData>(d['DataUrl']).subscribe(view => {
-        this.ViewData.next(view)
-      })
-    })
   }
 }
