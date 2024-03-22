@@ -1,0 +1,5 @@
+<div class="dad-container" [style]="Container?.Style">
+    <div class="dad-container-item" *ngFor="let item of Container?.Children" [style]="item?.Style">
+        <app-dad-widget *ngFor="let widget of item?.Children" [Widget]="widget"></app-dad-widget>
+    </div>
+</div>

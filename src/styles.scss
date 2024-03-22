@@ -2,6 +2,15 @@
 @import './../node_modules/quill/dist/quill.bubble.css';
 @import './../node_modules/quill/dist/quill.snow.css';
 
+
+.dad-fade{
+    opacity: 0;
+    transition: opacity .3s;
+}
+.dad-fade-show{
+    opacity: 1;
+}
+
 .view-quill .ql-editor, 
 .rgba-text,
 .rgba-text > box{

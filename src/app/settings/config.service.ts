@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin } from 'rxjs';
+import { delay, forkJoin, timeout } from 'rxjs';
 import { Route, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { colord } from "colord";
@@ -17,7 +17,7 @@ export class ConfigService {
   load() {
     return forkJoin([
       this.http.get<DadConfig>('/assets/dad-config.json'),
-      this.http.get<DadRoute[]>('/assets/dad-routes.json')
+      this.http.get<DadRoute[]>('/assets/dad-routes.json'),
     ], (configs, routes) => {
       this.Icon = configs.Icon
       this.Title = configs.Title
@@ -28,14 +28,8 @@ export class ConfigService {
       for (let route of routes) {
         let newRoute: Route = { path: route.Path }
         if (newRoute.path == '') newRoute.pathMatch = 'full'
-        if (route.Template == 'flex') {
-          newRoute.loadComponent = () => import('../templates/flex/flex.component').then(m => m.FlexComponent)
-        } else if (route.Template == 'grid') {
-          newRoute.loadComponent = () => import('../templates/grid/grid.component').then(m => m.GridComponent)
-        } else if (route.Template == 'smart-grid') {
-          newRoute.loadComponent = () => import('../templates/smart-grid/smart-grid.component').then(m => m.SmartGridComponent)
-        } else if (route.Template == 'list') {
-          newRoute.loadComponent = () => import('../templates/list/list.component').then(m => m.ListComponent)
+        if (!route.Template || route.Template == 'dad-page') {
+          newRoute.loadComponent = () => import('../templates/dad-page/dad-page.component').then(m => m.DadPageComponent)
         } else {
           newRoute.loadComponent = () => import('../errors/no-template/no-template.component').then(m => m.NoTemplateComponent)
           newRoute.data = route
@@ -44,7 +38,7 @@ export class ConfigService {
         appRoutes.push(newRoute)
       }
       appRoutes.push({
-        path: 'settings',
+        path: '⚙',
         loadComponent: () => import('./settings.component').then(m => m.SettingsComponent)
       })
       appRoutes.push({

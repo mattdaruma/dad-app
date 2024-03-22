@@ -1,9 +1,0 @@
-<mat-grid-list [cols]="GridColumns | async" rowHeight="100px" gutterSize="2em">
-    @for (tile of (GridTiles | async); track tile) {
-      <mat-grid-tile
-        [colspan]="tile.cols"
-        [rowspan]="tile.rows"
-        [style.background]="tile.color">{{tile.text}}</mat-grid-tile>
-    }
-  </mat-grid-list>
-  

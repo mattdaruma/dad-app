@@ -1,47 +1,41 @@
-import { DadWidget } from "../dad-widget/dad-widget.interface"
+import { DadWidget } from "../dad-widget.interface"
 
-export type DadCardSection = DadCardImage | DadCardHeader | DadCardActions | DadCardFooter | DadCardContent
-
-export interface DadCard{
+export interface DadCard extends DadWidget{
     Type: 'card'
-    Sections?: DadCardSection[]
 }
 
-export interface DadCardImage{
+export interface DadCardImage extends DadWidget{
     Type: 'card-image'
     URL?: string
     Title?: string
 }
 
-export interface DadCardHeader{
+export interface DadCardHeader extends DadWidget{
     Type: 'card-header'
     Title?: string
     Subtitle?: string
     Avatar?: DadCardImage
 }
 
-export interface DadCardActions {
+export interface DadCardActions extends DadWidget {
     Type: 'card-actions'
-    JustifyContent?: string
-    Actions?: DadCardAction[]
+    Children?: DadCardAction[]
 }
 
-export interface DadCardAction{
+export interface DadCardAction extends DadWidget {
     Type: 'card-action'
     Icon?: string
     Display?: string
     Color?: string
     RouterLink?: string[]
     HREF?: string
-    Function?: string
 }
 
-export interface DadCardContent{
+export interface DadCardContent extends DadWidget {
     Type: 'card-content'
-    Widget?: DadWidget
 }
 
-export interface DadCardFooter{
+export interface DadCardFooter extends DadWidget {
     Type: 'card-footer'
     Text?: string
 }

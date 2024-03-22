@@ -10,8 +10,9 @@ import { DadBanner } from './dad-banner.interface';
 })
 export class DadBannerComponent {
   @ViewChild('BannerImage') set BannerImage(banner: ElementRef){
-      banner.nativeElement.style.backgroundImage = `url(${this.Banner?.Image?.URL})`
-      banner.nativeElement.style.height = this.Banner?.Height
   }
   @Input() Banner: DadBanner | undefined = undefined
+
+  constructor(){
+  }
 }

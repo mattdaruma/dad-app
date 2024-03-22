@@ -1,8 +1,0 @@
-<app-dad-banner *ngIf="Widget?.Type === 'banner'" [Banner]="AsBanner()"></app-dad-banner>
-<app-dad-card *ngIf="Widget?.Type === 'card'" [Card]="AsCard()"></app-dad-card>
-<app-dad-chart *ngIf="Widget?.Type === 'chart'" [Chart]="AsChart()"></app-dad-chart>
-<app-dad-editor *ngIf="Widget?.Type === 'editor'" [Editor]="AsEdtior()"></app-dad-editor>
-<app-dad-form *ngIf="Widget?.Type === 'form'" [Form]="AsForm()"></app-dad-form>
-<app-dad-table *ngIf="Widget?.Type === 'table'" [Table]="AsTable()"></app-dad-table>
-<app-dad-view *ngIf="Widget?.Type==='view'" [View]="AsView()"></app-dad-view>
-<div *ngIf="Widget?.Type==='text'">{{AsText().Text}}</div>

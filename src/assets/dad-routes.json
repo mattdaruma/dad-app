@@ -1,27 +1,22 @@
 [
         {
             "Path": "",
-            "Template": "flex",
             "DataUrl": "/assets/pages/home.json"
         },
         {
             "Path": "friends",
-            "Template": "list",
             "DataUrl": "/assets/pages/friends.json"
         },
         {
-            "Path": "map",
-            "Template": "map",
-            "DataUrl": "/assets/pages/map.json"
-        },
-        {
             "Path": "contact",
-            "Template": "contact",
             "DataUrl": "/assets/pages/contact.json"
         },
         {
             "Path": "about",
-            "Template": "banner",
             "DataUrl": "/assets/pages/about.json"
+        },
+        {
+            "Path": "test",
+            "DataUrl": "/assets/pages/test.json"
         }
     ]

@@ -1,69 +1,82 @@
-{
-    "Type": "flex-page",
-    "Style": {
-        "justifyContent": "center",
-        "display": "flex",
-        "flexDirection": "row",
-        "flexWrap": "wrap"
-    },
-    "Items": [
-        {
-            "Style": {
-                "flexBasis": "100%"
-            },
-            "Widget": {
-                "Type": "banner",
-                "Image": {
-                    "Title": "Pretty House",
-                    "URL": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg"
-                },
-                "Height": "30em"
-            }
+[
+    {
+        "Type": "container",
+        "Style": {
+            "justifyContent": "center",
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "wrap"
         },
-        {
-            "Style": {
-                "padding": "1em"
-            },
-            "Widget": {
-                "Type": "card",
-                "Sections": [
-                    {
-                        "Type": "card-header",
-                        "Avatar": {
-                            "URL": "/assets/images/agent.jpg",
-                            "Title": "Jeff Morris"
-                        },
-                        "Title": "Jeff Morris",
-                        "Subtitle": "RE/MAX - Trussville, AL"
-                    },{
-                        "Type": "card-content",
-                        "Widget": {
-                            "Type": "view",
-                            "HTML": "<h3>Life-long resident of the Greater Birmingham Area with a history of service to my community. I can't wait to help you!</h3>"
-                        }
-                    },{
-                        "Type": "card-actions",
-                        "JustifyContent": "right",
-                        "Actions": [
-                            {
-                                "Icon": "person",
-                                "Display": "About",
-                                "RouterLink": "/about"
-                            },
-                            {
-                                "Icon": "diversity_3",
-                                "Display": "Friends",
-                                "RouterLink": "/friends"
-                            },
-                            {
-                                "Icon": "mail",
-                                "Display": "Contact",
-                                "RouterLink": "/contact"
-                            }
-                        ]
+        "Children": [
+            {
+                "Type": "container-item",
+                "Style": {
+                    "flexBasis": "100%"
+                },
+                "Children": [{
+                    "Type": "banner",
+                    "Style": {
+                        "height": "30em",
+                        "backgroundImage": "url('/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg')"
                     }
-                ]
+                }]
+            },
+            {
+                "Type": "container-item",
+                "Style": {
+                    "padding": "1em"
+                },
+                "Children": [{
+                    "Type": "card",
+                    "Style": {
+                        "maxWidth": "1000px"
+                    },
+                    "Children": [
+                        {
+                            "Type": "card-header",
+                            "Avatar": {
+                                "URL": "/assets/images/agent.jpg",
+                                "Title": "Jeff Morris"
+                            },
+                            "Title": "Jeff Morris",
+                            "Subtitle": "RE/MAX - Trussville, AL"
+                        },
+                        {
+                            "Type": "card-content",
+                            "Children": [{
+                                "Type": "view",
+                                "HTML": "<h3>Life-long resident of the Greater Birmingham Area with a history of service to my community. I can't wait to help you!</h3>"
+                            }]
+                        },
+                        {
+                            "Type": "card-actions",
+                            "Style": {
+                                "justifyContent": "right"
+                            },
+                            "Children": [
+                                {
+                                    "Type": "button",
+                                    "Icon": "person",
+                                    "Display": "About",
+                                    "RouterLink": "/about"
+                                },
+                                {
+                                    "Type": "button",
+                                    "Icon": "diversity_3",
+                                    "Display": "Friends",
+                                    "RouterLink": "/friends"
+                                },
+                                {
+                                    "Type": "button",
+                                    "Icon": "mail",
+                                    "Display": "Contact",
+                                    "RouterLink": "/contact"
+                                }
+                            ]
+                        }
+                    ]
+                }]
             }
-        }
-    ]
-}
+        ]
+    }
+]

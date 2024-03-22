@@ -1,5 +1,0 @@
-<div *ngIf="(PageData | async) as pageData" [style]="pageData.Style">
-    <div *ngFor="let item of pageData.Items" [style]="item.Style">
-        <app-dad-widget [Widget]="item.Widget"></app-dad-widget>
-    </div>
-</div>

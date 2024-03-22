@@ -2,8 +2,10 @@ import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom } from '@angula
 import { provideRouter } from '@angular/router';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ConfigService } from './settings/config.service';
+import { progressInterceptor } from './system/progress.interceptor';
+import { oauthInterceptor } from './system/oauth.interceptor';
 
 export interface DadRoute {
   Route: string,
@@ -13,7 +15,9 @@ export interface DadRoute {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(HttpClientModule),
+    provideHttpClient(
+      withInterceptors([progressInterceptor, oauthInterceptor])
+    ),
     provideRouter([]),
     provideAnimationsAsync(),
     {

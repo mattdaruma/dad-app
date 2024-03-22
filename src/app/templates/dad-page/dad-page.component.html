@@ -1,0 +1,12 @@
+<mat-progress-bar [color]="((PageLoad | async) ?? 0) >= 100 ? 'primary' : 'accent'" [mode]="'buffer'"
+    [value]="((PageLoad | async) ?? 0)" [bufferValue]="((PageLoad | async) ?? 0)"></mat-progress-bar>
+<div class="dad-page-container dad-fade" [ngClass]="((PageLoad | async) ?? 0) >= 1 ? 'dad-fade-show' : ''">
+    <app-dad-widget *ngFor="let widget of  (PageData | async)" [Widget]="widget"></app-dad-widget>
+</div>
+<div *ngIf="NoData && !Error">
+    <h1>No Widgets Provided</h1>
+</div>
+<div *ngIf="Error" class="page-error-container">
+    <h1>Error Fetching Page Data</h1>
+    <p class="page-error">{{Error}}</p>
+</div>

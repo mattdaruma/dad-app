@@ -1,35 +1,166 @@
-{
-    "View": "row",
-    "ListItems": [
-        {
-            "Image": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg",
-            "Name": "My Buddy",
-            "Description": "My buddy's business is the best business.  He businesses really well.",
-            "URL": "https://www.google.com/"
+[
+    {
+        "Type": "container",
+        "Style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "padding": "1em",
+            "flexWrap": "wrap",
+            "gap": "1em"
         },
-        {
-            "Image": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg",
-            "Name": "My Buddy",
-            "Description": "My buddy's business is the best business.  He businesses really well.",
-            "URL": "https://www.google.com/"
-        },
-        {
-            "Image": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg",
-            "Name": "My Buddy",
-            "Description": "My buddy's business is the best business.  He businesses really well.",
-            "URL": "https://www.google.com/"
-        },
-        {
-            "Image": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg",
-            "Name": "My Buddy",
-            "Description": "My buddy's business is the best business.  He businesses really well.",
-            "URL": "https://www.google.com/"
-        },
-        {
-            "Image": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg",
-            "Name": "My Buddy",
-            "Description": "My buddy's business is the best business.  He businesses really well.",
-            "URL": "https://www.google.com/"
-        }
-    ]
-}
+        "Children": [
+            {
+                "Type": "container-item",
+                "Children": [{
+                    "Type": "card",
+                    "Children": [
+                        {
+                            "Type": "card-content",
+                            "Children": [{
+                                "Type": "container",
+                                "Style": {
+                                    "display": "flex",
+                                    "gap": "1em"
+                                },
+                                "Children": [
+                                    {
+                                        "Type": "container-item",
+                                        "Style": {
+                                            "width": "20em",
+                                            "height": "20em"
+                                        },
+                                        "Children": [{
+                                            "Type": "banner",
+                                            "Style": {
+                                                "height": "100%",
+                                                "width": "100%",
+                                                "backgroundImage": "url('/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg')",
+                                                "boxShadow": "none"
+                                            }
+                                        }]
+                                    },
+                                    {
+                                        "Type": "container-item",
+                                        "Children": [{
+                                            "Type": "container",
+                                            "Style": {
+                                                "display": "flex",
+                                                "flexDirection": "column"
+                                            },
+                                            "Children": [
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "view",
+                                                        "HTML": "<h1>My Friend</h1>"
+                                                    }]
+                                                },
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "view",
+                                                        "HTML": "<h2>Master of Business</h2>"
+                                                    }]
+                                                },
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "text",
+                                                        "Text": "My friend's business is the greatest business."
+                                                    }]
+                                                },
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "view",
+                                                        "HTML": "<a href=\"https://google.com/\">Link to Friend</a>"
+                                                    }]
+                                                }
+                                            ]
+                                        }]
+                                    }
+                                ]
+                            }]
+                        }
+                    ]
+                }]
+            },
+            {
+                "Type": "container-item",
+                "Children": [{
+                    "Type": "card",
+                    "Children": [
+                        {
+                            "Type": "card-content",
+                            "Children": [{
+                                "Type": "container",
+                                "Style": {
+                                    "display": "flex",
+                                    "gap": "1em"
+                                },
+                                "Children": [
+                                    {
+                                        "Type": "container-item",
+                                        "Style": {
+                                            "width": "20em",
+                                            "height": "20em"
+                                        },
+                                        "Children": [{
+                                            "Type": "banner",
+                                            "Style": {
+                                                "height": "100%",
+                                                "width": "100%",
+                                                "backgroundImage": "url('/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg')",
+                                                "boxShadow": "none"
+                                            }
+                                        }]
+                                    },
+                                    {
+                                        "Type": "container-item",
+                                        "Children": [{
+                                            "Type": "container",
+                                            "Style": {
+                                                "display": "flex",
+                                                "flexDirection": "column"
+                                            },
+                                            "Children": [
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "view",
+                                                        "HTML": "<h1>My Friend</h1>"
+                                                    }]
+                                                },
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "view",
+                                                        "HTML": "<h2>Master of Business</h2>"
+                                                    }]
+                                                },
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "text",
+                                                        "Text": "My friend's business is the greatest business."
+                                                    }]
+                                                },
+                                                {
+                                                    "Type": "container-item",
+                                                    "Children": [{
+                                                        "Type": "view",
+                                                        "HTML": "<a href=\"https://google.com/\">Link to Friend</a>"
+                                                    }]
+                                                }
+                                            ]
+                                        }]
+                                    }
+                                ]
+                            }]
+                        }
+                    ]
+                }]
+            }
+        ]
+    }
+]

@@ -1,19 +1,21 @@
-<mat-card class="dad-card">
-    <ng-container *ngFor="let section of Card?.Sections" [ngSwitch]="section?.Type">
+<mat-card class="dad-card" [style]="Card?.Style">
+    <ng-container *ngFor="let section of Card?.Children" [ngSwitch]="section?.Type">
         <img mat-card-image *ngSwitchCase="'card-header'" [src]="AsImage(section).URL" [title]="AsImage(section).Title">
-        <mat-card-header *ngSwitchCase="'card-header'">
+        <mat-card-header *ngSwitchCase="'card-header'" [style]="AsHeader(section).Style">
             <mat-card-title *ngIf="AsHeader(section)?.Title as title">{{title}}</mat-card-title>
             <mat-card-subtitle *ngIf="AsHeader(section)?.Subtitle as subtitle">{{subtitle}}</mat-card-subtitle>
             <img mat-card-avatar *ngIf="AsHeader(section)?.Avatar as avatar" [src]="avatar.URL" [title]="avatar.Title">
         </mat-card-header>
-        <mat-card-content *ngSwitchCase="'card-content'">
-            <app-dad-widget [Widget]="AsContent(section).Widget"></app-dad-widget>
+        <mat-card-content *ngSwitchCase="'card-content'" [style]="AsContent(section).Style">
+            <app-dad-widget *ngFor="let widget of AsContent(section)?.Children" [Widget]="widget"></app-dad-widget>
         </mat-card-content>
-        <mat-card-actions *ngSwitchCase="'card-actions'" [style.justifyContent]="AsActions(section).JustifyContent">
-            <button *ngFor="let button of AsActions(section).Actions" mat-button color="primary" [routerLink]="[button.RouterLink]">
+        <mat-card-actions *ngSwitchCase="'card-actions'" [style]="AsActions(section).Style">
+            <button *ngFor="let button of AsActions(section).Children" mat-button color="primary" [routerLink]="[button.RouterLink]">
                 <mat-icon>{{button.Icon}}</mat-icon> {{button.Display}}
             </button>
         </mat-card-actions>
-        <mat-card-footer *ngSwitchCase="'card-footer'">{{AsFooter(section).Text}}</mat-card-footer>
+        <mat-card-footer *ngSwitchCase="'card-footer'" [style]="AsFooter(section).Style">
+            {{AsFooter(section).Text}}
+        </mat-card-footer>
     </ng-container>
 </mat-card>

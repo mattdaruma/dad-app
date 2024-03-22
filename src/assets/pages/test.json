@@ -1,0 +1,30 @@
+[
+    {
+        "Type" :"form",
+        "Style": {
+            "padding": "1em"
+        },
+        "Children": [
+            {
+                "Type": "field-text",
+                "Appearance": "outline",
+                "Label": "Test Label",
+                "Key": "testControl",
+                "Value": "Jubilous",
+                "DataList": [
+                    {
+                        "Value": "VHappy",
+                        "Display": "DHappy"
+                    },
+                    {
+                        "Value": "VJoy",
+                        "Display": "DJoy"
+                    }
+                ],
+                "Style": {
+                    "width": "100%"
+                }
+            }
+        ]
+    }
+]
