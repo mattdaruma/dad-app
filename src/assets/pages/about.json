@@ -15,9 +15,9 @@
                 },
                 "Children": [{
                     "Type": "banner",
-                    "Style": {
-                        "height": "30em",
-                        "backgroundImage": "url('/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg')"
+                    "Image": {
+                        "Type": "dad-image",
+                        "URL": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg"
                     }
                 }]
             },

@@ -1,21 +1,20 @@
-<mat-card class="dad-card" [style]="Card?.Style">
-    <ng-container *ngFor="let section of Card?.Children" [ngSwitch]="section?.Type">
-        <img mat-card-image *ngSwitchCase="'card-header'" [src]="AsImage(section).URL" [title]="AsImage(section).Title">
-        <mat-card-header *ngSwitchCase="'card-header'" [style]="AsHeader(section).Style">
-            <mat-card-title *ngIf="AsHeader(section)?.Title as title">{{title}}</mat-card-title>
-            <mat-card-subtitle *ngIf="AsHeader(section)?.Subtitle as subtitle">{{subtitle}}</mat-card-subtitle>
-            <img mat-card-avatar *ngIf="AsHeader(section)?.Avatar as avatar" [src]="avatar.URL" [title]="avatar.Title">
-        </mat-card-header>
-        <mat-card-content *ngSwitchCase="'card-content'" [style]="AsContent(section).Style">
-            <app-dad-widget *ngFor="let widget of AsContent(section)?.Children" [Widget]="widget"></app-dad-widget>
-        </mat-card-content>
-        <mat-card-actions *ngSwitchCase="'card-actions'" [style]="AsActions(section).Style">
-            <button *ngFor="let button of AsActions(section).Children" mat-button color="primary" [routerLink]="[button.RouterLink]">
-                <mat-icon>{{button.Icon}}</mat-icon> {{button.Display}}
-            </button>
-        </mat-card-actions>
-        <mat-card-footer *ngSwitchCase="'card-footer'" [style]="AsFooter(section).Style">
-            {{AsFooter(section).Text}}
-        </mat-card-footer>
-    </ng-container>
+<mat-card *ngIf="Widget | async as card" class="dad-card" [style]="card.Data.Style">
+    <img [style]="card.Data.Image?.Style" mat-card-image [src]="card.Data.Image?.URL" [title]="card.Data.Image?.Title">
+    <mat-card-header>
+        <mat-card-title>{{card.Data.Title}}</mat-card-title>
+        <mat-card-subtitle>{{card.Data.Subtitle}}</mat-card-subtitle>
+        <img [style]="card.Data.Avatar?.Style" mat-card-avatar [src]="card.Data.Avatar?.URL" [title]="card.Data.Avatar?.Title">
+    </mat-card-header>
+    <mat-card-content>
+        <app-dad-widget *ngFor="let widget of card.Children" [Widget]="widget"></app-dad-widget>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button *ngFor="let action of card.Data.Actions" [style]="action.Style" [color]="action.Color ?? 'primary'">
+            <mat-icon *ngIf="action.Icon">{{action.Icon}}</mat-icon>
+            {{action.Text}}
+        </button>
+    </mat-card-actions>
+    <mat-card-footer>
+        {{card.Data.Footer}}
+    </mat-card-footer>
 </mat-card>

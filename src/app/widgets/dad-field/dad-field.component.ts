@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { DadField } from './dad-field.interface';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DadFieldAutocompleteComponent } from './dad-field-autocomplete/dad-field-autocomplete.component';
 import { DadFieldCheckboxComponent } from './dad-field-checkbox/dad-field-checkbox.component';
@@ -13,7 +12,7 @@ import { DadFieldRadioComponent } from './dad-field-radio/dad-field-radio.compon
 import { DadFieldRangeComponent } from './dad-field-range/dad-field-range.component';
 import { DadFieldSelectComponent } from './dad-field-select/dad-field-select.component';
 import { DadFieldTextComponent } from './dad-field-text/dad-field-text.component';
-import { DadFieldText } from './dad-field-text/dad-field-text.interface';
+import { WidgetComponentBase } from '../dad-widget.component.base';
 
 @Component({
   selector: 'app-dad-field',
@@ -25,8 +24,5 @@ import { DadFieldText } from './dad-field-text/dad-field-text.interface';
   templateUrl: './dad-field.component.html',
   styleUrl: './dad-field.component.scss'
 })
-export class DadFieldComponent {
-  JSON = JSON
-  @Input() Field: DadField | undefined = undefined
-  AsTextField = () => this.Field as DadFieldText
+export class DadFieldComponent extends WidgetComponentBase {
 }

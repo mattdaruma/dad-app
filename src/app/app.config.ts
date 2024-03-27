@@ -6,6 +6,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ConfigService } from './settings/config.service';
 import { progressInterceptor } from './system/progress.interceptor';
 import { oauthInterceptor } from './system/oauth.interceptor';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 export interface DadRoute {
   Route: string,
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([progressInterceptor, oauthInterceptor])
     ),
     provideRouter([]),
+    provideNativeDateAdapter(),
     provideAnimationsAsync(),
     {
       provide: APP_INITIALIZER,

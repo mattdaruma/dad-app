@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { DadChart } from './dad-chart.interface';
+import { Component } from '@angular/core';
+import { WidgetComponentBase } from '../dad-widget.component.base';
 
 @Component({
   selector: 'app-dad-chart',
@@ -8,6 +8,8 @@ import { DadChart } from './dad-chart.interface';
   templateUrl: './dad-chart.component.html',
   styleUrl: './dad-chart.component.scss'
 })
-export class DadChartComponent {
-  @Input() Chart: DadChart | undefined = undefined
+export class DadChartComponent extends WidgetComponentBase {
+  WidgetReady = this.BaseReady.subscribe(w => {
+    w.MarkReady()
+  })
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, forkJoin, timeout } from 'rxjs';
+import { delay, forkJoin, of, timeout } from 'rxjs';
 import { Route, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { colord } from "colord";
@@ -17,7 +17,7 @@ export class ConfigService {
   load() {
     return forkJoin([
       this.http.get<DadConfig>('/assets/dad-config.json'),
-      this.http.get<DadRoute[]>('/assets/dad-routes.json'),
+      this.http.get<DadRoute[]>('/assets/dad-routes.json')
     ], (configs, routes) => {
       this.Icon = configs.Icon
       this.Title = configs.Title
@@ -143,7 +143,7 @@ export class ConfigService {
         document.documentElement.style.setProperty(`--theme-accent-contrast-${hue.hue}`, this.lightPrimaryText)
       }
     }
-    let warn = colord('f44336')
+    let warn = colord('#f44336')
     let warnHues = this.computeHues(warn.toRgbString())
     for (let hue of warnHues) {
       document.documentElement.style.setProperty(`--theme-warn-${hue.hue}`, hue.color.toRgbString())
@@ -165,6 +165,8 @@ export class ConfigService {
     }
     var bodyStyles = getComputedStyle(body)
     document.documentElement.style.setProperty(`--theme-fuzz`, bodyStyles.backgroundColor)
+    let bgColor = colord(bodyStyles.backgroundColor)
+    document.documentElement.style.setProperty(`--theme-fuzz-anti`, bgColor.invert().toRgbString())
   }
   private computeHues(rgba: string) {
     return [

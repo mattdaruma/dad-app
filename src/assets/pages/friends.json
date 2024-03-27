@@ -34,8 +34,11 @@
                                             "Style": {
                                                 "height": "100%",
                                                 "width": "100%",
-                                                "backgroundImage": "url('/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg')",
                                                 "boxShadow": "none"
+                                            },
+                                            "Image": {
+                                                "Type": "image",
+                                                "URL": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg"
                                             }
                                         }]
                                     },
@@ -110,8 +113,11 @@
                                             "Style": {
                                                 "height": "100%",
                                                 "width": "100%",
-                                                "backgroundImage": "url('/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg')",
                                                 "boxShadow": "none"
+                                            },
+                                            "Image": {
+                                                "Type": "image",
+                                                "URL": "/assets/images/terrah-holly-pmhdkgRCbtE-unsplash.jpg"
                                             }
                                         }]
                                     },

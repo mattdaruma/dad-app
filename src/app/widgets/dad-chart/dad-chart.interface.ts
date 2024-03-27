@@ -1,5 +1,5 @@
-import { DadWidget } from "../dad-widget.interface"
+import { IDadWidget } from "../dad-widget.interface"
 
-export interface DadChart extends DadWidget{
+export interface DadChart extends IDadWidget{
     Type: 'chart'
 }

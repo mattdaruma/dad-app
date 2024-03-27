@@ -1,7 +1,7 @@
 import { FormControl } from "@angular/forms"
-import { DadWidget } from "../dad-widget.interface"
+import { IDadWidget } from "../dad-widget.interface"
 
-export interface DadForm extends DadWidget{
+export interface DadForm extends IDadWidget{
     Type: 'form'
     FormGroup: DadFormGroup
 }

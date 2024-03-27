@@ -1,7 +1,6 @@
-import { DadStyle } from "../dad-style.interface"
-import { DadWidget } from "../dad-widget.interface"
+import { IDadWidget } from "../dad-widget.interface"
 
-export interface DadView extends DadWidget{
+export interface DadView extends IDadWidget{
     Type: 'view'
     HTML: string
 }

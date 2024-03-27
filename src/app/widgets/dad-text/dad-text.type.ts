@@ -1,6 +1,6 @@
-import { DadWidget } from "../dad-widget.interface"
+import { IDadWidget } from "../dad-widget.interface"
 
-export interface DadText extends DadWidget {
+export interface DadText extends IDadWidget {
     Type: 'text'
     Text?: string
 }

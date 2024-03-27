@@ -1,9 +1,9 @@
-import { DadWidget } from "../dad-widget.interface";
+import { IDadWidget } from "../dad-widget.interface";
 
-export interface DadContainer extends DadWidget{
+export interface DadContainer extends IDadWidget{
     Type: 'container'
 }
 
-export interface DadContainerItem extends DadWidget{
+export interface DadContainerItem extends IDadWidget{
     Type: 'container-item'
 }

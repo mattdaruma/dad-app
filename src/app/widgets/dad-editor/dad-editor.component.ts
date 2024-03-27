@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { DadEditor } from './dad-editor.interface';
+import { Component } from '@angular/core';
+import { WidgetComponentBase } from '../dad-widget.component.base';
 
 @Component({
   selector: 'app-dad-editor',
@@ -8,6 +8,5 @@ import { DadEditor } from './dad-editor.interface';
   templateUrl: './dad-editor.component.html',
   styleUrl: './dad-editor.component.scss'
 })
-export class DadEditorComponent {
-  @Input() Editor: DadEditor | undefined = undefined
+export class DadEditorComponent extends WidgetComponentBase {
 }

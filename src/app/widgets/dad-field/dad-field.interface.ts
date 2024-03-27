@@ -1,7 +1,7 @@
 import { FormControl } from "@angular/forms";
-import { DadWidget } from "../dad-widget.interface";
+import { IDadWidget } from "../dad-widget.interface";
 
-export interface DadField extends DadWidget {
+export interface DadField extends IDadWidget {
    Control?: FormControl
    Key: string
    Value?: string

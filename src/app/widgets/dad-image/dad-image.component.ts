@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
+import { DadTable } from '../dad-table/dad-table.interface';
 
 @Component({
   selector: 'app-dad-image',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: './dad-image.component.html',
   styleUrl: './dad-image.component.scss'
 })
-export class DadImageComponent {
-
+export class DadImageComponent implements AfterViewInit {
+  @Input() Table: DadTable | undefined = undefined
+  ngAfterViewInit(): void {
+    this.Table?.Loaded?.next(this.Table.Type)
+  }
 }

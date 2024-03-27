@@ -1,22 +1,19 @@
-import { AfterViewInit, Component, Input, forwardRef } from '@angular/core';
-import { DadContainer } from './dad-container.interface';
+import { Component, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DadWidgetComponent } from '../dad-widget.component';
+import { WidgetComponentBase } from '../dad-widget.component.base';
 
 @Component({
   selector: 'app-dad-container',
   standalone: true,
-  imports: [CommonModule, forwardRef(()=> DadWidgetComponent)],
+  imports: [CommonModule, forwardRef(() => DadWidgetComponent)],
   templateUrl: './dad-container.component.html',
   styleUrl: './dad-container.component.scss'
 })
-export class DadContainerComponent implements AfterViewInit{
-  @Input() Container: DadContainer | undefined = undefined
-  ngAfterViewInit(): void {
-    this.Container?.Loaded?.next(this.Container.Type)
-    if(this.Container?.Loaded) this.Container.Loaded = undefined
-    for(let s of this.Container?.Children ?? []){
-      s.Loaded?.next(s.Type)
-    }
-  }
+export class DadContainerComponent extends WidgetComponentBase {
+  WidgetReady = this.BaseReady.subscribe(w => {
+    for(let c of w.Children) c.MarkReady()
+    w.MarkReady()
+  })
+  constructor(){super()}
 }

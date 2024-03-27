@@ -1,7 +1,7 @@
 import { DadImage } from "../dad-image/dad-image.interface";
-import { DadWidget } from "../dad-widget.interface";
+import { IDadWidget } from "../dad-widget.interface";
 
-export interface DadBanner extends DadWidget {
+export interface DadBanner extends IDadWidget {
     Type: 'banner',
     Image: DadImage
 }

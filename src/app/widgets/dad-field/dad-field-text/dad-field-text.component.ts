@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { WidgetComponentBase } from '../../dad-widget.component.base';
 
 @Component({
   selector: 'app-dad-field-text',
@@ -12,7 +13,5 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './dad-field-text.component.html',
   styleUrl: './dad-field-text.component.scss'
 })
-export class DadFieldTextComponent {
-  JSON = JSON
-  @Input() FieldText: DadFieldText | undefined = undefined
+export class DadFieldTextComponent extends WidgetComponentBase{
 }

@@ -1,7 +1,7 @@
-<mat-form-field [style]="FieldText?.Style" [appearance]="FieldText?.Appearance ?? 'fill'">
-    <mat-label *ngIf="FieldText?.Label">{{FieldText?.Label}}</mat-label>
-    <input [attr.list]="FieldText?.Key+'-list'" [formControl]="FieldText?.Control!" matInput type="text">
-    <datalist [id]="FieldText?.Key+'-list'" *ngIf="FieldText?.DataList as dataList">
+<mat-form-field *ngIf="Widget | async as widget" [style]="widget.Data?.Style">
+    <mat-label *ngIf="widget?.Data?.Title">{{widget?.Data?.Title}}</mat-label>
+    <input *ngIf="widget.Data?.Key" [attr.list]="widget?.Data?.Key+'-list'" [formControl]="widget?.Field!" matInput type="text">
+    <datalist [id]="widget?.Data?.Key+'-list'" *ngIf="widget?.Data?.Options as dataList">
         <option *ngFor="let data of dataList" [value]="data.Value === undefined ? data.Display : data.Value">
             {{data.Display === undefined ? data.Value : data.Display}}</option>
     </datalist>

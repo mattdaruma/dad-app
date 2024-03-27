@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "audit": "npm audit --omit=dev"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
+    "ag-charts-community": "^9.2.0",
     "colord": "^2.9.3",
     "ngx-color-picker": "^16.0.0",
     "ngx-quill": "^25.1.1",

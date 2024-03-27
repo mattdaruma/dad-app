@@ -5,8 +5,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class DadPageService {
-  DataLoaded = new Subject<boolean>()
-  WidgetCount = new Subject<number>()
-  WidgetLoaded = new Subject<string | undefined>()
+  // DataLoaded = new Subject<boolean>()
+  // WidgetCount = new Subject<number>()
+  // WidgetLoaded = new Subject<string | undefined>()
   constructor() { }
 }

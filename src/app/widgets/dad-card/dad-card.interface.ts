@@ -1,28 +1,28 @@
-import { DadWidget } from "../dad-widget.interface"
+import { IDadWidget } from "../dad-widget.interface"
 
-export interface DadCard extends DadWidget{
+export interface DadCard extends IDadWidget{
     Type: 'card'
 }
 
-export interface DadCardImage extends DadWidget{
+export interface DadCardImage extends IDadWidget{
     Type: 'card-image'
     URL?: string
     Title?: string
 }
 
-export interface DadCardHeader extends DadWidget{
-    Type: 'card-header'
+export interface DadCardHeader extends IDadWidget{
+    Type: 'card-head'
     Title?: string
     Subtitle?: string
     Avatar?: DadCardImage
 }
 
-export interface DadCardActions extends DadWidget {
+export interface DadCardActions extends IDadWidget {
     Type: 'card-actions'
     Children?: DadCardAction[]
 }
 
-export interface DadCardAction extends DadWidget {
+export interface DadCardAction extends IDadWidget {
     Type: 'card-action'
     Icon?: string
     Display?: string
@@ -31,11 +31,11 @@ export interface DadCardAction extends DadWidget {
     HREF?: string
 }
 
-export interface DadCardContent extends DadWidget {
+export interface DadCardContent extends IDadWidget {
     Type: 'card-content'
 }
 
-export interface DadCardFooter extends DadWidget {
+export interface DadCardFooter extends IDadWidget {
     Type: 'card-footer'
     Text?: string
 }
