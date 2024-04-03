@@ -1,30 +1,25 @@
 import { Injectable } from '@angular/core';
-import { DadPageService } from './templates/dad-page/dad-page.service';
-import { Subject, combineLatestWith, map, shareReplay, startWith } from 'rxjs';
+import { ReplaySubject, combineLatestWith, map, shareReplay, startWith } from 'rxjs';
+import { IDadCache } from './cache/dad-cache.interface';
+import { IDadAppConfig } from './dad-app-config.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DadAppService {
-  // private DataLoaded = this.page.DataLoaded.pipe(startWith(false))
-  // private WidgetCount = this.page.WidgetCount.pipe(startWith(1))
-  // private WidgetLoaded = this.page.WidgetLoaded.pipe(startWith(undefined))
-  private widgetsLoaded = 0 
-  // Progress = this.DataLoaded.pipe(
-  //   combineLatestWith(this.WidgetCount),
-  //   combineLatestWith(this.WidgetLoaded), 
-  //   map(([[data, count], loaded]) => {
-  //     if(!data) {
-  //       this.widgetsLoaded = 0
-  //       return 0
-  //     }
-  //     if(loaded === undefined) {
-  //       return 30
-  //     } 
-  //     this.widgetsLoaded++
-  //     return Math.floor(30+((this.widgetsLoaded/count)*70))
-  //   }),
-  //   shareReplay(1)
-  // )
-  constructor(private page: DadPageService) { }
+  private initConfigCache = new ReplaySubject<IDadAppConfig>(1)
+  private pageConfigCache = new ReplaySubject<IDadAppConfig>(1)
+  private userConfigCache = new ReplaySubject<IDadAppConfig>(1)
+  AppConfig = this.initConfigCache.pipe(
+    combineLatestWith(this.pageConfigCache.pipe(startWith({} as IDadAppConfig))),
+    map(([init, page]) => Object.assign(init ?? {}, page ?? {})),
+    combineLatestWith(this.userConfigCache.pipe(startWith({} as IDadAppConfig))),
+    map(([init, user]) => Object.assign(init, user ?? {})),
+    shareReplay(1)
+  )
+  LoadInitConfig = (config: IDadAppConfig) => this.initConfigCache.next(config!)
+  OnPageConfig = (config: IDadAppConfig) => this.pageConfigCache.next(config)
+  OnUserConfig = (config: IDadAppConfig) => this.userConfigCache.next(config)
+
+  constructor() {  }
 }  

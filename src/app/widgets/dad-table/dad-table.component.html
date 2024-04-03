@@ -14,6 +14,7 @@
                     <mat-form-field *ngSwitchCase="'string'">
                         <mat-label>{{col.Display}}</mat-label>
                         <input type="text" matInput [formControlName]="col.Key">
+                        <mat-icon color="primary" matSuffix>text_fields</mat-icon>
                     </mat-form-field>
                     <ng-container *ngSwitchCase="'number'">
                         <mat-form-field>
@@ -35,8 +36,20 @@
                         <mat-form-field>
                             <mat-label>&lt;{{col.Display}}</mat-label>
                             <input matInput [matDatepicker]="lessThanDate" [formControlName]="col.Key+'-lt'">
-                            <mat-datepicker-toggle matIconSuffix [for]="lessThanDate"></mat-datepicker-toggle>
-                            <mat-datepicker #lessThanDate></mat-datepicker>
+                            <button color="accent" matSuffix mat-icon-button (click)="lessThanDate.open()">
+                                <mat-icon matDatepickerToggleIcon>event</mat-icon>
+                            </button>
+                            <!-- <mat-datepicker-toggle matIconSuffix [for]="lessThanDate"></mat-datepicker-toggle> -->
+                            <mat-datepicker #lessThanDate>
+                                <mat-datepicker-actions>
+                                    <button color="warn" mat-icon-button (click)="lessThanDate.select(null); lessThanDate.close()">
+                                        <mat-icon>clear</mat-icon>
+                                    </button>
+                                    <button color="primary" mat-icon-button (click)="lessThanDate._applyPendingSelection(); lessThanDate.close()">
+                                        <mat-icon>check</mat-icon>
+                                    </button>
+                                </mat-datepicker-actions>
+                            </mat-datepicker>
                         </mat-form-field>
                     </ng-container>
                 </ng-container>

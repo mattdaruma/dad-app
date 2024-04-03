@@ -54,17 +54,17 @@
                         {
                             "Icon": "person",
                             "Text": "About",
-                            "RouterLink": "/about"
+                            "Route": ["/","about"]
                         },
                         {
                             "Icon": "diversity_3",
                             "Text": "Friends",
-                            "RouterLink": "/friends"
+                            "Route": ["/","friends"]
                         },
                         {
                             "Icon": "mail",
                             "Text": "Contact",
-                            "RouterLink": "/contact"
+                            "Route": ["/","contact"]
                         }
                     ]
                 }

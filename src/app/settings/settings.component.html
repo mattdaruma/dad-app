@@ -1,7 +1,32 @@
-<div class="center-flex settings-container">
+<div id="settings-container" class="center-flex settings-container dad-fade">
     <div class="content-width-cap settings-content">
         <mat-accordion>
-            <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel class="panel-hidden-onload">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Cache
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Manage local files.
+                        <mat-icon>cached</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="settings-panel-content">
+                    <div>
+                        <div>
+                            <button (click)="cache.ClearApp(); location.reload()" mat-button
+                                color="primary"><mat-icon>cached</mat-icon>Clear App  Cache</button>
+                        </div>
+                        <div>
+                            <button (click)="cache.ClearAll(); location.reload()" mat-button
+                                color="primary"><mat-icon>cached</mat-icon>Clear Domain  Cache</button>
+                        </div>
+                    </div>
+                    <h3>
+                    </h3>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-hidden-onload">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Color
@@ -13,6 +38,34 @@
                 </mat-expansion-panel-header>
                 <div class="settings-panel-content">
                     <app-settings-colors></app-settings-colors>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-hidden-onload">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Header
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Customize title and icon.
+                        <mat-icon>title</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="settings-panel-content">
+                    <p>title, icon</p>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-hidden-onload">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Nav
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Customize navigation buttons.
+                        <mat-icon>menu</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="settings-panel-content">
+                    <p>nav</p>
                 </div>
             </mat-expansion-panel>
         </mat-accordion>

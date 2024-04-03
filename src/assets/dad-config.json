@@ -1,28 +1,59 @@
 {
-    "Favicon": "/assets/images/dad-favicon.ico",
-    "Title": "Jeff Morris with RE/MAX",
-    "Icon": "house",
-    "Color": "#AAF",
-    "Nav": [
+    "Favicon": "/assets/dad-favicon.ico",
+    "AppConfig": {
+        "Title": "Jeff Morris with RE/MAX",
+        "Icon": "house",
+        "Nav": [
+            {
+                "RouterLink": "/",
+                "Icon": "house",
+                "Display": "Home"
+            },
+            {
+                "RouterLink": "/friends",
+                "Icon": "diversity_3",
+                "Display": "Friends"
+            },
+            {
+                "RouterLink": "/contact",
+                "Icon": "mail",
+                "Display": "Contact"
+            },
+            {
+                "RouterLink": "/about",
+                "Icon": "person",
+                "Display": "About"
+            },
+            {
+                "RouterLink": "/test",
+                "Icon": "test",
+                "Display": "Test"
+            }
+        ]
+    },
+    "ThemeConfig": {
+        "Color": "#AAF"
+    },
+    "Routes": [
         {
-            "RouterLink": "/",
-            "Icon": "house",
-            "Display": "Home"
+            "Path": "",
+            "DataUrl": "/assets/pages/home.json"
         },
         {
-            "RouterLink": "/friends",
-            "Icon": "diversity_3",
-            "Display": "Friends"
+            "Path": "friends",
+            "DataUrl": "/assets/pages/friends.json"
         },
         {
-            "RouterLink": "/contact",
-            "Icon": "mail",
-            "Display": "Contact"
+            "Path": "contact",
+            "DataUrl": "/assets/pages/contact.json"
         },
         {
-            "RouterLink": "/about",
-            "Icon": "person",
-            "Display": "About"
+            "Path": "about",
+            "DataUrl": "/assets/pages/about.json"
+        },
+        {
+            "Path": "test",
+            "DataUrl": "/assets/pages/test.json"
         }
     ]
 }

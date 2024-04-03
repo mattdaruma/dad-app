@@ -12,5 +12,6 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrl: './not-found.component.scss'
 })
 export class NotFoundComponent {
-  constructor(public route: ActivatedRoute){}
+  constructor(public route: ActivatedRoute){
+  }
 }

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ConfigService } from '../config.service';
+import { DadThemeService } from '../../theme/dad-theme.service';
 
 @Component({
   selector: 'app-settings-colors',
@@ -17,10 +18,9 @@ import { ConfigService } from '../config.service';
 export class SettingsColorsComponent {
   color: any
   SeedColorSelect(rgba: string){
-     this.config.StopRave()
-     this.config.SeedColor(rgba)
+    this.theme.SetColor(rgba)
   }
-  constructor(private config: ConfigService){}
+  constructor(private theme: DadThemeService){}
 }
 
 

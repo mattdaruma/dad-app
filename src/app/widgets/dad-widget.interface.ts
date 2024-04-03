@@ -1,3 +1,4 @@
+import { IDadCacheConfigBase } from "../cache/dad-cache-config-base.interface";
 import { DadStyle } from "./dad-style.interface";
 
 export interface DadOption{
@@ -18,7 +19,7 @@ export interface DadAction{
   Color?: string
   Text?: string
 }
-export interface IDadWidget {
+export interface IDadWidget extends IDadCacheConfigBase {
   Id: string
   Type: string
   Style: DadStyle

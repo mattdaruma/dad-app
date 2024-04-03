@@ -52,6 +52,7 @@ export class DadTableComponent extends WidgetComponentBase {
     combineLatestWith(this.Page.pipe(startWith({ length: 10, pageIndex: 0, pageSize: 5 }))),
     combineLatestWith(this.FilterForm.valueChanges.pipe(debounceTime(80), startWith({ } as {[prop: string]: FormControl}))),
     combineLatestWith(this.Columns.pipe(shareReplay(1))),
+    debounceTime(300),
     map(([[[[d, s], p], f], c]) => {
       if(this.FilterForm.valid){
         for(let key in f){

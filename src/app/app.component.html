@@ -1,7 +1,7 @@
-<div class="dad-app-container dad-fade" #dadAppContainer>
+<div class="dad-app-container dad-fade" #dadAppContainer >
   <!-- <mat-progress-bar [color]="((Progress | async) ?? 0) >= 100 ? 'primary' : 'accent'" [mode]="'buffer'"
     [value]="((Progress | async) ?? 0)" [bufferValue]="((Progress | async) ?? 0)"></mat-progress-bar> -->
-  <div id="dad-app-header" class="dad-app-header">
+  <div id="dad-app-header" class="dad-app-header" *ngIf="AppConfig | async as config">
     <mat-toolbar color="default" class="dad-app-toolbar">
       <button mat-icon-button color="primary" [routerLink]="['/']">
         <mat-icon id="dad-app-header-icon" class="dad-app-header-icon">{{config.Icon}}</mat-icon>
@@ -17,8 +17,8 @@
         <button color="primary" *ngFor="let nav of config.Nav" mat-menu-item [routerLink]="[nav.RouterLink]">
           <mat-icon color="primary">{{nav.Icon}}</mat-icon>
           <span>{{nav.Display}}</span>
-        </button>
-      </mat-menu>
+        </button> 
+      </mat-menu> 
     </mat-toolbar>
   </div>
   <div class="dad-app-contents">

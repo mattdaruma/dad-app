@@ -2,15 +2,16 @@ import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, E
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { ActivationEnd, ActivationStart, ChildActivationEnd, ChildActivationStart, GuardsCheckEnd, GuardsCheckStart, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, ResolveEnd, ResolveStart, RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterModule, RoutesRecognized, Scroll } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
-import { ConfigService } from './settings/config.service';
-import { BehaviorSubject, Subject, combineLatestWith, debounceTime, delay, filter, map, of, shareReplay, startWith, tap } from 'rxjs';
+import { debounceTime, map, startWith, tap } from 'rxjs';
 import { ProgressService } from './system/progress.service';
-import { DadAppService } from './dad-app.service';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { DadAppService } from './dad-app.service';
+import { ConfigService } from './settings/config.service';
+import { DadCacheService } from './cache/dad-cache.service';
+import { DadThemeService } from './theme/dad-theme.service';
 
 
 @Component({
@@ -22,21 +23,21 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('dadAppContainer') App: ElementRef | undefined = undefined
-  delayer = 30
+  AppConfig = this.app.AppConfig.pipe(tap(config => {
+    document.getElementById('dad-favicon')?.setAttribute('href', config.Favicon ?? '/assets/dad-favicon.ico');
+  }))
   PendingRequests = this.progress.PendingRequests.pipe(
     map(r => r > 0 ? true : false),
-    debounceTime(0), 
+    debounceTime(0),
     startWith(false)
-    )
-  constructor(public config: ConfigService, public router: Router, public progress: ProgressService) {
+  )
+  constructor(public config: ConfigService, public progress: ProgressService, private app: DadAppService, 
+    public cache: DadCacheService, private theme: DadThemeService) {
   }
   ngAfterViewInit(): void {
-    let loader = document.getElementsByClassName('loader-container')![0]
-    this.App?.nativeElement.classList.add('dad-fade-show')
+    let loader = document.getElementById('loader-container')!
     loader.classList.remove('dad-fade-show')
-    setTimeout(()=>{
-      loader.remove()
-      this.App?.nativeElement.classList.add('dad-fade-show')
-    }, 300)
+    setTimeout(() => this.App?.nativeElement.classList.add('dad-fade-show'), 0)
+    setTimeout(() => loader.remove(), 300)
   }
 }

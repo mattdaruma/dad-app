@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, forkJoin, of, timeout } from 'rxjs';
+import { catchError, delay, forkJoin, of, timeout } from 'rxjs';
 import { Route, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { colord } from "colord";
@@ -15,17 +15,16 @@ export class ConfigService {
   constructor(private http: HttpClient, private router: Router, private readonly title: Title) {  
    }
   load() {
-    return forkJoin([
-      this.http.get<DadConfig>('/assets/dad-config.json'),
-      this.http.get<DadRoute[]>('/assets/dad-routes.json')
-    ], (configs, routes) => {
+      this.http.get<DadConfig>('/assets/dad-config.json').pipe(
+        catchError(err => {throw err }),
+      ).subscribe( configs => {
       this.Icon = configs.Icon
       this.Title = configs.Title
       this.Nav = configs.Nav
       this.title.setTitle(configs.Title)
       document.getElementById('dad-favicon')?.setAttribute('href', '/assets/dad-favicon.ico');
       let appRoutes: Route[] = []
-      for (let route of routes) {
+      for (let route of configs.Routes) {
         let newRoute: Route = { path: route.Path }
         if (newRoute.path == '') newRoute.pathMatch = 'full'
         if (!route.Template || route.Template == 'dad-page') {
@@ -123,6 +122,7 @@ export class ConfigService {
   }
   SeedColor(rgba: string = `rgba(${this.primary.rgba.r}, ${this.primary.rgba.g}, ${this.primary.rgba.b}, 1)`) {
     let isDark = colord(rgba).isLight()
+
     let primary = this.primary = colord(rgba)
     let primaryHues = this.computeHues(primary.toRgbString())
     for (let hue of primaryHues) {
@@ -196,10 +196,11 @@ export interface DadError {
 }
 
 export interface DadConfig {
-  Color: string,
-  Icon: string,
-  Title: string,
+  Color: string
+  Icon: string
+  Title: string
   Nav: DadNav[]
+  Routes: DadRoute[]
 }
 
 export interface DadNav {
