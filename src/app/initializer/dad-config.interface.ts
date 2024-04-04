@@ -9,9 +9,9 @@ export interface IDadConfig extends IDadCacheConfigBase{
     CacheConfigUrl?: string
     CacheConfig?: IDadCacheConfig
     AppConfigUrl?: string
-    AppConfig?: IDadAppConfig
+    App?: IDadAppConfig
     RoutesUrl?: string
     Routes?: IDadRoute[]
     ThemeConfigUrl?: string
-    ThemeConfig?: IDadThemeConfig
+    Theme?: IDadThemeConfig
 }

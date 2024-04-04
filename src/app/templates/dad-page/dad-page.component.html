@@ -7,5 +7,7 @@
 </div>
 <div *ngIf="Error" class="page-error-container">
     <h1>Error Fetching Page Data</h1>
-    <p class="page-error" [innerHTML]="Error"></p>
+    <p class="page-error">
+        {{Error}}
+    </p>
 </div>

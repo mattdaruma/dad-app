@@ -4,10 +4,40 @@
             <mat-expansion-panel class="panel-hidden-onload">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
+                        Theme
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Choose your color scheme. (Basic)
+                        <mat-icon>palette</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="settings-panel-content">
+                    <app-settings-colors></app-settings-colors>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-hidden-onload">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        App
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Customize the app interface. (Intermediate)
+                        <mat-icon>menu</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="settings-panel-content">
+                    <p>title, icon</p>
+                    <p>nav</p>
+                    <p>favicon</p>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="panel-hidden-onload">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
                         Cache
                     </mat-panel-title>
                     <mat-panel-description>
-                        Manage local files.
+                        Manage local files. (Intermediate)
                         <mat-icon>cached</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -29,39 +59,11 @@
             <mat-expansion-panel class="panel-hidden-onload">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Color
+                        Routes
                     </mat-panel-title>
                     <mat-panel-description>
-                        Choose your color scheme.
-                        <mat-icon>palette</mat-icon>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="settings-panel-content">
-                    <app-settings-colors></app-settings-colors>
-                </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel class="panel-hidden-onload">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Header
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        Customize title and icon.
-                        <mat-icon>title</mat-icon>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="settings-panel-content">
-                    <p>title, icon</p>
-                </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel class="panel-hidden-onload">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Nav
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        Customize navigation buttons.
-                        <mat-icon>menu</mat-icon>
+                        Customize the app's routes. (Advanced)
+                        <mat-icon>route</mat-icon>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="settings-panel-content">

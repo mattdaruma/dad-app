@@ -60,19 +60,19 @@ export class DadInitializerService {
             )
           }),
           switchMap(config => {
-            return this.tryGetRemoteConfig<IDadAppConfig>(config.AppConfig ?? {}, config.AppConfigUrl).pipe(
+            return this.tryGetRemoteConfig<IDadAppConfig>(config.App ?? {}, config.AppConfigUrl).pipe(
               map(c => {
-                if(!config.AppConfig) config.AppConfig = {} as IDadAppConfig
-                Object.assign(config.AppConfig as any, c)
+                if(!config.App) config.App = {} as IDadAppConfig
+                Object.assign(config.App as any, c)
                 return config
               })
             )
           }),
           switchMap(config => {
-            return this.tryGetRemoteConfig<IDadThemeConfig>(config.ThemeConfig ?? {}, config.ThemeConfigUrl).pipe(
+            return this.tryGetRemoteConfig<IDadThemeConfig>(config.Theme ?? {}, config.ThemeConfigUrl).pipe(
               map(c => {
-                if(!config.ThemeConfig) config.ThemeConfig = {} as IDadThemeConfig
-                Object.assign(config.ThemeConfig as any, c)
+                if(!config.Theme) config.Theme = {} as IDadThemeConfig
+                Object.assign(config.Theme as any, c)
                 return config
               })
             )
@@ -83,8 +83,8 @@ export class DadInitializerService {
       switchMap(config => {
         let routesReady$ = this.routes.LoadInitConfig(config.Routes ?? [])
         this.cache.LoadInitConfig(config.CacheConfig ?? {})
-        this.theme.LoadInitConfig(config.ThemeConfig ?? {})
-        this.app.LoadInitConfig(config.AppConfig ?? {})
+        this.theme.LoadInitConfig(config.Theme ?? {})
+        this.app.LoadInitConfig(config.App ?? {})
         return routesReady$
       })
     )

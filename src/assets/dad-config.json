@@ -1,6 +1,6 @@
 {
     "Favicon": "/assets/dad-favicon.ico",
-    "AppConfig": {
+    "App": {
         "Title": "Jeff Morris with RE/MAX",
         "Icon": "house",
         "Nav": [
@@ -31,7 +31,7 @@
             }
         ]
     },
-    "ThemeConfig": {
+    "Theme": {
         "Color": "#AAF"
     },
     "Routes": [

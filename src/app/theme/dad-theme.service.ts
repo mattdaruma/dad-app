@@ -20,7 +20,7 @@ export class DadThemeService {
   private initConfig = new ReplaySubject<IDadThemeConfig>(1)
   Theme = this.initConfig.pipe(
     combineLatestWith(this.setColor),
-    map(([cnf, c]) => colord(c ?? cnf.Color ?? '00F')),
+    map(([cnf, c]) => colord(c ?? cnf.Color ?? '0F0')),
     tap((color)=>{
       this.css.setDarkTheme(color.isLight())
       this.css.setPrimaryColor(color.toRgbString())
